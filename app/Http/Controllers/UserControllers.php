@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 
@@ -9,13 +10,26 @@ class UserControllers extends Controller
     function getRegister(){
         return view('Users.register');
     }
-    function postRegister(Request $request){
+    public function postRegister(Request $request) {
         $request->validate([
-            'fullname' => 'required|string|max:255',
-            'email' => 'required|string|max:255',
-            'password' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|max:255|confirmed',
+        ], [
+            'password.confirmed' => 'Mật khẩu xác nhận không khớp. Vui lòng nhập lại!',
+            'password.min' => 'Mật khẩu phải có ít nhất 6 ký tự.',
         ]);
+    
+        User::create([
+            'username' => $request->name,
+            'email' => $request->email,
+            'password_hash' => bcrypt($request->password),
+        ]);
+    
+        return redirect()->route('login')->with('success', 'Đăng ký thành công');
     }
+    
+    
     
     function getLogin(){
         return view('Users.login');

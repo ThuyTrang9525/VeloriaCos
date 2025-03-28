@@ -18,6 +18,7 @@ class UsersTableSeeder extends Seeder
                 'phone' => '0123456789',
                 'address' => '123 Admin Street',
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'username' => 'user1',
@@ -26,8 +27,10 @@ class UsersTableSeeder extends Seeder
                 'phone' => '0987654321',
                 'address' => '456 User Road',
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
         ]);
+        
         
     }
 }
