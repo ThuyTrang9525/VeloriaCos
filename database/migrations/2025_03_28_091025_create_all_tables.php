@@ -14,6 +14,7 @@ class CreateAllTables extends Migration
             $table->string('email', 100)->unique();
             $table->string('phone', 20)->nullable();
             $table->text('address')->nullable();
+            $table->text('role');
             $table->timestamps();
         });
 

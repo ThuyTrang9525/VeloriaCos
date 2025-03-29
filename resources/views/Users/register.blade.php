@@ -17,37 +17,37 @@
         </div>
         <p>There are many advantages to creating an account: the payment process is faster, shipment tracking is possible and much more.</p>
         <form action="{{ route('register') }}" method="POST">
-    @csrf
-    <div>
-        <label for="name">Username *</label>
-        <input type="text" id="name" name="name" placeholder="Username *" required>
-    </div>
+            @csrf
+            <div class='input'>
+                <label for="name">Username *</label>
+                <input type="text" id="name" name="name" placeholder="Username *" required>
+            </div>
 
-    <div>
-        <label for="email">Email address *</label>
-        <input type="email" id="email" name="email" placeholder="Email address *" required>
-    </div>
+            <div class='input'>
+                <label for="email">Email address *</label>
+                <input type="email" id="email" name="email" placeholder="Email address *" required>
+            </div>
 
-    <div>
-        <label for="password">Password *</label>
-        <input type="password" id="password" name="password" placeholder="Password *" required>
-    </div>
+            <div class='input'>
+                <label for="password">Password *</label>
+                <input type="password" id="password" name="password" placeholder="Password *" required>
+            </div>
 
-    <div>
-        <label for="password_confirmation">Confirm Password *</label>
-        <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Confirm Password *" required>
-    </div>
+            <div class='input'>
+                <label for="password_confirmation">Confirm Password *</label>
+                <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Confirm Password *" required>
+            </div>
 
-    <p class="link">Already have an account? <a href="{{route('login')}}">Log in</a></p>
-        <button class="register-btn">Register</button>
-        @if ($errors->any())
-        <div class="error">
-            @foreach ($errors->all() as $error)
-                <p style="color: red;">{{ $error }}</p>
-            @endforeach
-        </div>
-    @endif
-</form>
+            <p class="link">Already have an account? <a href="{{route('login')}}">Log in</a></p>
+                <button class="register-btn">Register</button>
+                @if ($errors->any())
+                <div class="error">
+                    @foreach ($errors->all() as $error)
+                        <p style="color: red;">{{ $error }}</p>
+                    @endforeach
+                </div>
+            @endif
+        </form>
 
     </div>
 </body>

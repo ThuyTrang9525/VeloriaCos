@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
@@ -16,8 +18,8 @@ class UserControllers extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|max:255|confirmed',
         ], [
-            'password.confirmed' => 'Mật khẩu xác nhận không khớp. Vui lòng nhập lại!',
-            'password.min' => 'Mật khẩu phải có ít nhất 6 ký tự.',
+            'password.confirmed' => 'Confirmed password does not match. Please re-enter!',
+            'password.min' => 'Password must be at least 6 characters.',
         ]);
     
         User::create([
@@ -26,50 +28,23 @@ class UserControllers extends Controller
             'password_hash' => bcrypt($request->password),
         ]);
     
-        return redirect()->route('login')->with('success', 'Đăng ký thành công');
+        return redirect()->route('login')->with('success', 'Registration successful');
     }
     
-    
-    
-    function getLogin(){
+    public function getLogin(){
         return view('Users.login');
     }
+    public function postLogin(Request $request){
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:6',
+        ]);
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+                return redirect()->route('welcome')->with('success', 'Đăng nhập thành công!');
+            }
+        }
+        
+        return back()->with('error', 'Email hoặc mật khẩu không đúng!');
+    }
 }
-
-
-// public function getLogin(){
-//     return view('page.login');
-// }
-// public function postLogin(Request $request){
-//     $request->validate([
-//         'email' => 'required|email',
-//         'password' => 'required|min:6',
-//     ]);
-//     if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-//         return redirect()->route('trang-chu')->with('success', 'Đăng nhập thành công!');
-//     }
-//     return back()->with('error', 'Email hoặc mật khẩu không đúng!');
-// }
-
-// public function logout()
-// {
-//     Auth::logout();
-//     return redirect()->route('login')->with('success', 'Bạn đã đăng xuất thành công!');
-// }
-// public function getSignup(){
-//     return view('page.signup');
-// }
-
-// public function postSignup(Request $request){
-//     $request->validate([
-//                 'fullname' => 'required|string|max:255',
-//                 'email' => 'required|string|max:255',
-//                 'password' => 'required|string|max:255',
-//             ]);
-//     User::create([
-//         'name' => $request-> fullname,
-//         'email' => $request -> email,
-//         'password' => $request -> password,
-//     ]);
-//     return redirect()->route('login')->with('success', 'Đăng kí thành công');
-// }
