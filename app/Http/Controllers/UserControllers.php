@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class UserControllers extends Controller
 {
@@ -34,17 +35,25 @@ class UserControllers extends Controller
     public function getLogin(){
         return view('Users.login');
     }
-    public function postLogin(Request $request){
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required|min:6',
-        ]);
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-                return redirect()->route('welcome')->with('success', 'Đăng nhập thành công!');
-            }
+    public function postlogin(Request $request)
+{
+    $request->validate([
+        'email' => 'required|email',
+        'password_hash' => 'required|min:6',
+    ]);
+
+    if (Auth::attempt(['email' => $request->email, 'password' => $request->password_hash])) {
+        // Lấy thông tin người dùng đã đăng nhập
+        $user = Auth::user();
+
+        // Kiểm tra role_id và chuyển hướng tương ứng
+        if ($user->role_id == 1) { // Admin
+            return redirect()->route('admin')->with('success', 'Login successful');
+        } elseif ($user->role_id == 2) { // User
+            return redirect()->route('homepage')->with('success', 'Login successful');
         }
-        
-        return back()->with('error', 'Email hoặc mật khẩu không đúng!');
     }
+
+    return back()->with('error', 'Incorrect email or password');
+}
 }

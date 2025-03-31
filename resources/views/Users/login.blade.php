@@ -11,28 +11,33 @@
  
 </head>
 <body>
-    <div class="container">
-        <div class="tabs">
-        <a href="{{route('register')}}" class="btn">Register</a>
+<div class="container">
+    <div class="tabs">
+        <a href="{{ route('register') }}" class="btn">Register</a>
         <button class="active">Login</button>
-        </div>
-        <p>If you have an account, sign in with your username or email address.</p>
-        <form action="{{ route('login') }}" method="POST">
-            @csrf
-            <div class='input'>
-                <label for="email">Email address *</label>
-                <input type="email" id="email" name="email" placeholder="Email address *" required autocomplete="username">
-                </div>
-
-            <div class='input'>
-                <label for="password">Password *</label>
-                <input type="password" id="password" name="password" placeholder="Password *" required autocomplete="current-password">
-                </div>
-
-            <p class="link">Don't have an account? <a href="{{route('register')}}">Sign up</a></p>
-            <button class="register-btn">Login</button>
-        </form>
-
     </div>
+    
+    <p>If you have an account, sign in with your email address.</p>
+
+    @if(session('error'))
+        <p class="error-message">{{ session('error') }}</p>
+    @endif
+
+    <form action="{{ route('postlogin') }}" method="POST">
+    @csrf
+    <div class="input">
+        <label for="email">Email address *</label>
+        <input type="email" id="email" name="email" placeholder="Email address *" required>
+    </div>
+
+    <div class="input">
+        <label for="password_hash">Password *</label>
+        <input type="password" id="password_hash" name="password_hash" placeholder="Password *" required>
+    </div>
+
+    <button type="submit" class="register-btn">Login</button>
+</form>
+</div>
+
 </body>
 </html>

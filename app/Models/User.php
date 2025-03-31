@@ -9,8 +9,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    protected $table = 'users';
-    /** @use HasFactory<\Database\Factories\UserFactory> */
+        /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
     /**
@@ -18,8 +17,13 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
-    protected $fillable = ['email', 'password', 'role_id'];
+    protected $fillable = ['username', 'email', 'password_hash'];
 
+    // Nếu bạn muốn sử dụng Auth với trường password_hash
+    public function getAuthPassword()
+    {
+        return $this->password_hash;
+    }
     
 
     /**
@@ -28,7 +32,7 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $hidden = [
-        'password',
+        'password_hash',
         'remember_token',
     ];
 
@@ -41,7 +45,7 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            'password_hash' => 'hashed',
         ];
     }
 }
