@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserControllers;
 use App\Http\Controllers\AdminControllers;
 use App\Http\Controllers\ProductControllers;
+use App\Http\Controllers\VNPayController;
 
 
 
@@ -18,10 +19,15 @@ Route::post('/register', [UserControllers::class, 'postRegister']);
 
 Route::get('/login', [UserControllers::class, 'getLogin'])->name('login');
 Route::post('/postlogin', [UserControllers::class, 'postlogin'])->name('postlogin');
+Route::post('/logout', [UserControllers::class, 'logout'])->name('logout');
+
 
 Route::get('/admin',[AdminControllers::class,'getAdmin'])-> name('admin');
 
-Route::get('/homepage', [UserControllers::class, 'getHomepage']);
+Route::get('/product_list', [ProductController::class, 'getListProduct'])->name('product_list');
+
+
+Route::get('/homepage', [UserControllers::class, 'getHomepage']) -> name('homepage');
 Route::get('/product', [ProductController::class, 'show'])->name('product.show');
 
 Route::get('/checkout', [ProductController::class, 'checkout'])->name('checkout');

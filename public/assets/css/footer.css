@@ -1,11 +1,9 @@
-body {
-    background-color: white;
+
+
+.footer {
     font-family: Quicksand;
     margin: 0;
     padding: 0;
-}
-
-.footer {
     background-color: rgb(0, 0, 0);
     width: 100%;
     height: auto;

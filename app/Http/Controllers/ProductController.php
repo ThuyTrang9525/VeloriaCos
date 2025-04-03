@@ -66,4 +66,8 @@ class ProductController extends Controller
     {
         return view('checkout-success');
     }
+
+    public function getListProduct(){
+        return view('Products.product_list');
+    }
 }

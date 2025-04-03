@@ -55,18 +55,30 @@
                 </div>
 
                 <div class="info-Account">
-                    <img src="../../../images/avatar-default.jpg" alt="">
+                    <img src="{{ Auth::check() ? Auth::user()->avatar : asset('images\avatar.png') }}" alt="">
                     <div>
-                        <p>Tài khoản</p>
-                        <a href="#">Đăng nhập</a>
+                        @if(Auth::check())
+                            <p>{{ Auth::user()->name }}</p>
+                            <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                Đăng xuất
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        @else
+                            <p>Tài khoản</p>
+                            <a href="{{ route('login') }}">Đăng nhập</a>
+                        @endif
                     </div>
                 </div>
+
             </div>
     
             <div class="bottom-header">
                 <ul class="navigate-header">
-                    <li>Home</li>
-                    <li>Shop</li>
+                <a href="{{ route('homepage') }}"><li>Shop</li></a>
+                <a href="{{ route('product_list') }}"><li>Shop</li></a>
                     <li>Collections</li>
                     <li>About us</li>
                     <li>Contact</li>
