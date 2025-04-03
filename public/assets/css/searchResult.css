@@ -1,0 +1,41 @@
+.search-results-container {
+    margin: 130px 50px 50px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-search-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-search-results h1, p, .underline {
+    display: flex;
+    justify-content: center;
+}
+
+.title-search-results h1 {
+    margin: 10px 0;
+    font-size: 30px;
+    color: #E68585;
+}
+
+.title-search-results p {
+    margin: 0;
+    font-size: 18px;
+}
+
+.title-search-results #quantity-results {
+    color: #E68585;
+    margin: 0 6px;
+}
+
+.title-search-results .underline {
+    margin: 10px 0;
+    width: 100px;
+    height: 5px;
+    border-radius: 3px;
+    background-color: #E68585;
+}
