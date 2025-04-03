@@ -58,7 +58,7 @@
                 </div>
 
                 <div class="info-Account">
-                    <img src="../../../public/images/avatar-default.jpg" alt="">
+                    <img src="../../../images/avatar-default.jpg" alt="">
                     <div>
                         <p>Tài khoản</p>
                         <a href="#">Đăng nhập</a>

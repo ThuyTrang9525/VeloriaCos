@@ -56,4 +56,8 @@ class UserControllers extends Controller
 
     return back()->with('error', 'Incorrect email or password');
 }
+
+    function getHomepage(){
+        return view('Users.homepage');
+    }
 }
