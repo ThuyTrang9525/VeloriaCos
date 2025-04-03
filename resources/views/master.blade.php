@@ -23,13 +23,13 @@
 
 <body>
 
-@include('component.header')
+@include('components.header')
 
 <div class="rev-slider">
     @yield('content')
 </div>
 
-@include('component.footer')	
+@include('components.footer')	
 
 </body>
 </html>
