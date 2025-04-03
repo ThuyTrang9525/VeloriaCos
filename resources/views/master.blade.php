@@ -19,6 +19,7 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <!-- Link css below -->
     <link rel="stylesheet" type="" href="assets\css\register_login.css">
+    <link rel="stylesheet" href="assets\css\homepage.css">
 </head>
 
 <body>

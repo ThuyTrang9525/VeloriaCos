@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserControllers;
 use App\Http\Controllers\AdminControllers;
-
+use App\Http\Controllers\ProductControllers;
 
 
 
@@ -19,3 +19,5 @@ Route::get('/login', [UserControllers::class, 'getLogin'])->name('login');
 Route::post('/postlogin', [UserControllers::class, 'postlogin'])->name('postlogin');
 
 Route::get('/admin',[AdminControllers::class,'getAdmin'])-> name('admin');
+
+Route::get('/homepage', [UserControllers::class, 'getHomepage']);
