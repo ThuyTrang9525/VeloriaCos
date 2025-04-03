@@ -33,34 +33,34 @@ class ProductController extends Controller
     public function checkout()
     {
         $products = Product::all();
-        return view('checkout', compact('products'));
+        return view('Products.checkout', compact('products'));
     }
 
-    // public function placeOrder(Request $request)
-    // {
-    //     $request->validate([
-    //         'product_id' => 'required|exists:products,id',
-    //         'quantity' => 'required|integer|min:1',
-    //         'first_name' => 'required',
-    //         'last_name' => 'required',
-    //         'email' => 'required|email',
-    //         'phone' => 'required',
-    //         'address' => 'required',
-    //         'city' => 'required',
-    //         'state' => 'required',
-    //         'zip_code' => 'required',
-    //         'payment_method' => 'required',
-    //     ]);
+    public function placeOrder(Request $request)
+    {
+        $request->validate([
+            'product_id' => 'required|exists:products,id',
+            'quantity' => 'required|integer|min:1',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'zip_code' => 'required',
+            'payment_method' => 'required',
+        ]);
 
-    //     $product = Product::find($request->product_id);
-    //     $totalPrice = $product->price * $request->quantity;
+        $product = Product::find($request->product_id);
+        $totalPrice = $product->price * $request->quantity;
 
-    //     return redirect()->route('checkout.success')->with([
-    //         'message' => 'Order placed successfully!',
-    //         'product' => $product,
-    //         'total_price' => $totalPrice,
-    //     ]);
-    // }
+        return redirect()->route('checkout.success')->with([
+            'message' => 'Order placed successfully!',
+            'product' => $product,
+            'total_price' => $totalPrice,
+        ]);
+    }
 
     public function success()
     {

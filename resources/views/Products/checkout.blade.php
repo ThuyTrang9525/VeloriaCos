@@ -95,27 +95,21 @@
             </div>
             <h2>Billing details</h2>
             <form>
-                <label>First name *</label>
+                <label>Your name *</label>
                 <input type="text" required>
-                <label>Last name *</label>
-                <input type="text" required>
-                <label>Company name (optional)</label>
-                <input type="text">
-                <label>Country / Region *</label>
-                <select>
-                    <option>United States (US)</option>
+                <label for="province">Chọn tỉnh/thành phố:</label>
+                <select id="province">
+                    <option value="">-- Chọn tỉnh/thành phố --</option>
                 </select>
-                <label>Street address *</label>
-                <input type="text" placeholder="House number and street name" required>
-                <input type="text" placeholder="Apartment, suite, unit, etc. (optional)">
-                <label>Town / City *</label>
-                <input type="text" required>
-                <label>State *</label>
-                <select>
-                    <option>California</option>
+            
+                <label for="district">Chọn quận/huyện:</label>
+                <select id="district">
+                    <option value="">-- Chọn quận/huyện --</option>
                 </select>
-                <label>ZIP Code *</label>
-                <input type="text" required>
+                <label for="ward">Chọn xã/phường:</label>
+                <select id="ward">
+                    <option value="">-- Chọn xã/phường --</option>
+                </select>
                 <label>Phone *</label>
                 <input type="text" required>
                 <label>Email address *</label>
@@ -158,5 +152,88 @@
             <button class="place-order">Place order</button>
         </div>
     </div>
+    <script>
+        function initAutocomplete() {
+            let input = document.getElementById("address");
+            let autocomplete = new google.maps.places.Autocomplete(input, {
+                types: ['geocode'],
+                componentRestrictions: { country: "VN" } // Giới hạn địa chỉ ở Việt Nam
+            });
+    
+            autocomplete.addListener("place_changed", function () {
+                let place = autocomplete.getPlace();
+                console.log("Địa chỉ đã chọn:", place.formatted_address);
+            });
+        }
+    
+        document.addEventListener("DOMContentLoaded", initAutocomplete);
+    </script>
+    <script type="module">
+ async function getProvince() {
+    let response = await fetch('https://provinces.open-api.vn/api/?depth=3'); // Đổi depth=3 để lấy xã/phường
+    let data = await response.json();
+    return data;
+}
+
+async function init() {
+    let data = await getProvince();
+    let provinceSelect = document.getElementById('province');
+    let districtSelect = document.getElementById('district');
+    let wardSelect = document.getElementById('ward');
+
+    // Thêm tỉnh/thành phố vào dropdown
+    data.forEach(province => {
+        let option = document.createElement("option");
+        option.value = province.name;
+        option.textContent = province.name;
+        provinceSelect.appendChild(option);
+    });
+
+    // Khi chọn tỉnh/thành phố, cập nhật danh sách quận/huyện
+    provinceSelect.addEventListener('change', function () {
+        let selectedProvince = data.find(p => p.name == provinceSelect.value);
+        renderDistrict(selectedProvince);
+        wardSelect.innerHTML = '<option value="">-- Chọn xã/phường --</option>'; // Reset xã/phường khi chọn tỉnh mới
+    });
+
+    // Khi chọn quận/huyện, cập nhật danh sách xã/phường
+    districtSelect.addEventListener('change', function () {
+        let selectedProvince = data.find(p => p.name == provinceSelect.value);
+        let selectedDistrict = selectedProvince.districts.find(d => d.name == districtSelect.value);
+        renderWard(selectedDistrict);
+    });
+
+    // Hiển thị danh sách quận/huyện
+    function renderDistrict(province) {
+        districtSelect.innerHTML = '<option value="">-- Chọn quận/huyện --</option>'; // Xóa quận/huyện cũ
+        if (province && province.districts) {
+            province.districts.forEach(district => {
+                let option = document.createElement("option");
+                option.value = district.name;
+                option.textContent = district.name;
+                districtSelect.appendChild(option);
+            });
+        }
+    }
+
+    // Hiển thị danh sách xã/phường
+    function renderWard(district) {
+        wardSelect.innerHTML = '<option value="">-- Chọn xã/phường --</option>'; // Xóa xã/phường cũ
+        if (district && district.wards) {
+            district.wards.forEach(ward => {
+                let option = document.createElement("option");
+                option.value = ward.name;
+                option.textContent = ward.name;
+                wardSelect.appendChild(option);
+            });
+        }
+    }
+}
+
+// Khởi chạy khi trang tải
+init();
+
+
+    </script>
 </body>
 </html>

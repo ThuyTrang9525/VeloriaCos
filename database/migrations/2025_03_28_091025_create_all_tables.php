@@ -14,7 +14,8 @@ class CreateAllTables extends Migration
             $table->string('email', 100)->unique();
             $table->string('phone', 20)->nullable();
             $table->text('address')->nullable();
-            $table->timestamp('created_at')->useCurrent();
+            $table->text('role');
+            $table->timestamps();
         });
 
         Schema::create('categories', function (Blueprint $table) {
