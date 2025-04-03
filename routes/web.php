@@ -21,3 +21,4 @@ Route::post('/postlogin', [UserControllers::class, 'postlogin'])->name('postlogi
 Route::get('/admin',[AdminControllers::class,'getAdmin'])-> name('admin');
 
 Route::get('/homepage', [UserControllers::class, 'getHomepage']);
+Route::get('/cart', [UserControllers::class, 'getCart']);

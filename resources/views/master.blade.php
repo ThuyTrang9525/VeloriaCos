@@ -20,6 +20,7 @@
     <!-- Link css below -->
     <link rel="stylesheet" type="" href="assets\css\register_login.css">
     <link rel="stylesheet" href="assets\css\homepage.css">
+    <link rel="stylesheet" href="assets\css\cart.css">
 </head>
 
 <body>

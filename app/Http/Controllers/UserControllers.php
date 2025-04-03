@@ -60,4 +60,8 @@ class UserControllers extends Controller
     function getHomepage(){
         return view('Users.homepage');
     }
+
+    function getCart(){
+        return view('Users.cart');
+    }
 }
