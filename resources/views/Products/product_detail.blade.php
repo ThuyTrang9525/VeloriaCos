@@ -1,49 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('master')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Page</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <style>
-        body {
-            font-family: 'Quicksand', sans-serif;
-        }
-
-        /* Giữ màu của nút Add to Wishlist ổn định */
-        #add-to-wishlist-button {
-            background-color: #e2e8f0;
-            color: black;
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        .tab-links a {
-            padding: 10px;
-            text-decoration: none;
-            color: gray;
-            font-weight: 600;
-        }
-
-        .tab-links a.active {
-            color: #e11d48;
-            border-bottom: 2px solid #e11d48;
-        }
-    </style>
-</head>
-<body class="bg-gray-100">
+@section('content')
 <div class="container mx-auto ">
+    
     <div class="flex gap-6 bg-white p-6 rounded-lg shadow-lg">
         <div class="bg-white p-6 rounded-lg shadow-lg">
             <div class="flex gap-6 bg-white p-6 rounded-lg shadow-lg">
@@ -240,51 +199,5 @@
         </div>
     </div>
 </div>
-    <script>
-        let currentImage = 0;
-        const images = [
-            "https://down-vn.img.susercontent.com/file/sg-11134201-7rdyj-lxietm1nzi4m54.webp",
-            "https://down-vn.img.susercontent.com/file/sg-11134201-7rdxk-lxieto5ezgkff8@resize_w900_nl.webp",
-            "https://down-vn.img.susercontent.com/file/sg-11134201-7rdwl-lxietp3jiq4qb7.webp"
-        ];
-
-        function changeImage(index) {
-            if (index >= 0 && index < images.length) {
-                currentImage = index;
-                document.getElementById("main-image").src = images[currentImage];
-                updateNavigation();
-            }
-        }
-
-        function updateNavigation() {
-            document.getElementById("prev-button").classList.toggle("text-gray-400", currentImage === 0);
-            document.getElementById("next-button").classList.toggle("text-gray-400", currentImage === images.length - 1);
-        }
-
-        function selectSize(button) {
-            const buttons = document.querySelectorAll("button");
-            buttons.forEach(btn => btn.classList.remove("bg-gray-200", "text-black", "border-black"));
-            button.classList.add("bg-gray-200", "text-black", "border-black");
-        }
-        function showTab(tab) {
-            // Ẩn tất cả các tab
-            document.getElementById("description").classList.add("hidden");
-            document.getElementById("reviews").classList.add("hidden");
-            document.getElementById("more-products").classList.add("hidden");
-
-            // Hiển thị tab đã chọn
-            document.getElementById(tab).classList.remove("hidden");
-
-            // Thay đổi kiểu dáng của các liên kết
-            document.getElementById("description-link").classList.remove("border-b-2", "border-pink-500");
-            document.getElementById("reviews-link").classList.remove("border-b-2", "border-pink-500");
-            document.getElementById("more-products-link").classList.remove("border-b-2", "border-pink-500");
-
-            // Đánh dấu liên kết đã chọn
-            document.getElementById(tab + "-link").classList.add("border-b-2", "border-pink-500");
-        }
-        // Default tab to show
-        showTab('description');
-    </script>
-</body>
-</html>
+<script src="{{ asset('assets/js/product_detail.js') }}"></script>
+@endsection

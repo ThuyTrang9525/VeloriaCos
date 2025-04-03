@@ -9,7 +9,7 @@ use App\Http\Controllers\ProductControllers;
 
 use App\Http\Controllers\ProductController;
 Route::get('/', function () {
-    return view('welcome');
+    return view('master');
 });
 
 Route::get('/register',[UserControllers::class,'getRegister'])-> name('register');
