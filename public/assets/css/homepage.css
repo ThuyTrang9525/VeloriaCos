@@ -1,18 +1,21 @@
-body {
-    margin: 0;
-    font-family: Quicksand, sans-serif;
+.container-homepage{
+    margin-top: 113px;
 }
 
 .banner-container {
+    
     background-color: #F5D1D1;
-}    
+    width: 100%;
+    height: auto;
+}   
+
 .banner-container .banner {
     display: flex;
     align-items: center;
     gap: 220px;
     padding: 50px 80px ;
     max-width: 1150px;
-    margin-inline: auto;
+    margin-inline:auto ;
 }   
 
 .banner .banner-content h1 {
@@ -82,7 +85,6 @@ body {
     display: flex;
     justify-content: space-between;
     margin-inline:auto;
-    flex-wrap: wrap;
     max-width: 1150px;
 }
 
@@ -145,19 +147,19 @@ body {
 }
         /* ------------------------------------------------------------------------- */
 
-.collection-section {
+.collection-div {
     text-align: center;
     padding: 40px 20px;
     background-color: #fff;
 }
 
-.collection-section .collection-title {
+.collection-div .collection-title {
     font-size: 35px;
     color: #e38181;
     margin-bottom: 20px;
 }
 
-.collection-section .collection-grid {
+.collection-div .collection-grid {
     display: flex;
     justify-content: center;
     gap: 15px;
@@ -253,7 +255,7 @@ body {
     
 }
 
-.why-shop .section-title {
+.why-shop .div-title {
     font-size: 2em;
     font-weight: bold;
     color: #e57c7c;
@@ -265,7 +267,6 @@ body {
 .why-shop .features {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     gap: 40px;
 }
 
@@ -297,7 +298,7 @@ body {
 }
 
 /* ----------------------- */
-.fashion-section {
+.fashion-div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -315,13 +316,13 @@ body {
     gap: 20px;
 }
 
-.fashion-section .content {
+.fashion-div .content {
     padding-left: 30px;
     max-width: 450px;
 
 }
 
-.fashion-section .content h2 {
+.fashion-div .content h2 {
     font-size: 35px;
     color: #d64c4c;
     font-weight: bold;
@@ -333,7 +334,7 @@ body {
     font-weight: bold;
 }
 
-.fashion-section .content p {
+.fashion-div .content p {
     font-size: 18px;
     color: #555;
     line-height: 1.6;
