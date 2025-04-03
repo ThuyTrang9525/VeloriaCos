@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use Database\Seeders\ProductSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,11 +14,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // Bạn có thể gọi các Seeder khác tại đây
+        $this->call(ProductsSeeder::class);
+        $this->call(ProductImageSeeder::class);
 
+        // Tạo một người dùng mẫu
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
     }
 }
+
