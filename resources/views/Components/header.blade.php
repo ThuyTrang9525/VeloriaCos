@@ -13,31 +13,31 @@
                     <h1>Veloria Cos</h1>
                 </div>
 
-                <div class="info-ContactWeb">
-                    <div class="info-Detail">
-                        <ion-icon name="call-outline"></ion-icon>
-                        <div>
-                            <p>Call anytime</p>
-                            <h6>+ 84 123 789 456</h6>
-                        </div>
-                    </div>
-
-                    <div class="info-Detail">
-                        <ion-icon name="mail-outline"></ion-icon>
-                        <div class="div-info-Detail2">
-                            <p>Send email</p>
-                            <h6>VeloriaCos@gmail.com</h6>
-                        </div>
-                    </div>
-
-                    <div class="info-Detail">
-                        <ion-icon name="map-outline"></ion-icon>
-                        <div>
-                            <p>Address</p>
-                            <h6>Sơn Trà, Đà Nẵng</h6>
-                        </div>
+            <div class="info-ContactWeb">
+                <div class="info-Detail">
+                    <ion-icon name="call-outline"></ion-icon>
+                    <div>
+                        <p>Call anytime</p>
+                        <h6>+ 84 123 789 456</h6>
                     </div>
                 </div>
+
+                <div class="info-Detail">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <div class="div-info-Detail2">
+                        <p>Send email</p>
+                        <h6>VeloriaCos@gmail.com</h6>
+                    </div>
+                </div>
+
+                <div class="info-Detail">
+                    <ion-icon name="map-outline"></ion-icon>
+                    <div>
+                        <p>Address</p>
+                        <h6>Sơn Trà, Đà Nẵng</h6>
+                    </div>
+                </div>
+            </div>
 
                 <div class="info-Account">
                     <img src="{{ Auth::check() ? Auth::user()->avatar : asset('images\avatar.png') }}" alt="">
@@ -69,10 +69,10 @@
                     <li>Contact</li>
                 </ul>
 
-                <div class="search-bar-container">
-                    <input type="text" class="input-search-bar" placeholder="Nhập sản phẩm cần tìm kiếm">
-                    <button type="submit" class="submit-search-bar"><ion-icon name="search-outline"></ion-icon></button>
-                </div>
+            <div class="search-bar-container">
+                <input type="text" class="input-search-bar" placeholder="Nhập sản phẩm cần tìm kiếm">
+                <button type="submit" class="submit-search-bar"><ion-icon name="search-outline"></ion-icon></button>
+            </div>
 
                 <div class="icon-shopping-cart">
                     <p class="quantity-icon-shopping-cart">0</p>
@@ -81,4 +81,4 @@
             </div>
         </div>
     </div>
-    </div>
+</div>
