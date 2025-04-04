@@ -1,0 +1,54 @@
+header {
+    background-color: #222;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav a {
+    color: #f9f9f9;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.about {
+    text-align: center;
+    padding: 50px;
+    background-color: white;
+}
+
+.about h2 {
+    color: #c0392b;
+}
+
+.about ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about ul li {
+    padding: 10px;
+    font-size: 18px;
+}
+
+.services {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px;
+    background-color: #f4f4f4;
+}
+
+.service-item {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.service-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Veloria Cos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="assets\css\about_us.css">
+    <style>
+.about-us {
+   display: flex;
+    flex-direction: column;
+   max-width: 1150px;
+   gap: 10px;
+   margin-inline: auto;
+}
+
+
+.about-us .about-us-title{
+    font-size: 35px;
+    color: lightcoral;
+    margin: 0;
+}
+
+.about-us .about-us-content{
+    font-size: 20px;
+    color: black;
+}
+
+.services {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1150px;
+    margin: 0 auto;
+
+}
+
+.service-item {
+    position: relative;
+    text-align: center;
+   
+    width: 350px;
+}
+.service-item h3 {
+    position: absolute; 
+    bottom: 10px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    color: white; 
+    font-size: 20px;
+}
+
+.service-item img {
+    width: 100%;
+    height: 440px; 
+    object-fit: cover;
+}
+/* ----------------------------- */
+.team-section {
+  max-width: 1150px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.team-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.team-title {
+  color: #f08632;
+  font-size: 20px;
+}
+
+.team-join-button {
+  padding: 15px;
+  border: 1px solid black;
+  background: none;
+  cursor: pointer;
+}
+
+.team-subtitle {
+  font-size: 40px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.team-members {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.team-member {
+  position: relative;
+  overflow: hidden;
+}
+
+.team-member img {
+  width: 270px;
+  display: block;
+}
+
+.content-member {
+  width :270px;
+  padding-block: 30px;
+  background-color: white;
+  opacity: 0.8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+.team-member:hover .content-member {
+  opacity: 0.8;
+  transform: translateY(0);
+}
+
+.content-member a i{
+  color: black;
+  margin-right: 10px;
+}
+    </style>
+
+</head>
+<body>
+    <div class="container-about-us">
+
+    </div>
+    <section class="about-us">
+        <h2 class="about-us-title">Welcome to Veloria Cos!</h2>
+        <p class="about-us-content"> Veloria Cos is the perfect destination for cosplay enthusiasts. We provide high-quality costumes with a diverse range of styles, from anime and manga to characters from movies and video games.</p>
+    </section>
+    
+    <section class="services">
+        <div class="service-item">
+            <img src="https://i.pinimg.com/736x/de/c5/2a/dec52a856a71fe0a81b42b30b10c5044.jpg" alt="Cosplay Costume Rental">
+            <h3>Cosplay Costume Rental</h3>
+        </div>
+        <div class="service-item">
+            <img src="https://i.pinimg.com/736x/0e/93/15/0e931565a4819cb15e69d88e5c4c8121.jpg" alt="Custom Costume Design">
+            <h3>Custom Costume Design</h3>
+        </div>
+        <div class="service-item">
+            <img src="https://i.pinimg.com/736x/96/df/cb/96dfcbad2d9a3a57fb822e66d1a5e3fc.jpg" alt="Cosplay Photography Services">
+            <h3>Cosplay Photography</h3>
+        </div>
+    </section>
+    
+    <section class="team-section">
+        <div class="team-header">
+            <h2 class="team-title">OUR TEAM</h2>
+            <button class="team-join-button">Join us</button>
+        </div>
+        <p class="team-subtitle"><i>Sweet Baker</i></p>
+        <div class="team-members">
+            <div class="team-member">
+                <img src="https://i.pinimg.com/736x/f7/2e/5a/f72e5ab17b4ecc8be010676ddcaba9d5.jpg" alt="Team Member 1">
+                <div class="content-member">
+                    <div class="name-member">RANDY BUTLER</div>
+                    <div class="position-member">Decorater</div>
+                    <div class="contact-member">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="https://i.pinimg.com/736x/f7/2e/5a/f72e5ab17b4ecc8be010676ddcaba9d5.jpg" alt="Team Member 1">
+                <div class="content-member">
+                    <div class="name-member">RANDY BUTLER</div>
+                    <div class="position-member">Decorater</div>
+                    <div class="contact-member">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="https://i.pinimg.com/736x/f7/2e/5a/f72e5ab17b4ecc8be010676ddcaba9d5.jpg" alt="Team Member 1">
+                <div class="content-member">
+                    <div class="name-member">RANDY BUTLER</div>
+                    <div class="position-member">Decorater</div>
+                    <div class="contact-member">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="https://i.pinimg.com/736x/f7/2e/5a/f72e5ab17b4ecc8be010676ddcaba9d5.jpg" alt="Team Member 1">
+                <div class="content-member">
+                    <div class="name-member">RANDY BUTLER</div>
+                    <div class="position-member">Decorater</div>
+                    <div class="contact-member">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
