@@ -1,33 +1,46 @@
 @extends('master')
 @section('content')
-<div class="container mt-5">
-    <div class="row">
+<div class="container mt-[120px]">
+    <div class="row ml-[120px]" >
         <div class="col-md-3">
-            <h3>Product categories</h3>
-            <ul class="list-group">
-                @foreach ($sidebar as $sb)
-                <li class="list-group-item">{{$sb -> name}}</li>
-                @endforeach
-            </ul>
+        <ul class="list-group">
+        @foreach ($sidebar as $sb)
+            <li class="list-group-item">
+                <a href="{{ route('category_products', ['category_id' => $sb->id]) }}"
+                   class="{{ request()->is('product_list/'.$sb->id) ? 'active' : '' }}">
+                    {{ $sb->name }}
+                </a>
+            </li>
+        @endforeach
+    </ul>
         </div>
-        <div class="col-md-9">
-            <div class="row">
-                <div class=" d-flex gap-4">
-                    @foreach ($products as $pd)
-                    <div class="card">
-                        <img src="{{https://down-vn.img.susercontent.com/file/sg-11134201-7rdxk-lxieto5ezgkff8@resize_w900_nl.webp"}} 
-                        class="card-img-top" alt="Product">
-                        <div class="card-body">
-                            <p class="card-title">Adult Quantity Tee</p>
-                            <p class="card-text">$26.00 - $29.00</p>
-                        </div>
-                        
-                    </div>
-                    @endforeach
+
+        <div class="col-md-8">
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-4">
+        @foreach ($products as $product)
+            <div class="bg-white p-4 rounded-lg relative text-center">
+                <img src="{{ $product->primaryImage ? asset($product->primaryImage->image_url) : asset('images/default.jpg') }}" 
+                     alt="{{ $product->name }}" 
+                     class="w-full h-80 object-cover rounded-lg">
+                <div class="absolute top-2 right-2 flex gap-2">
+                    <i class="fa-solid fa-cart-plus text-pink-500 bg-white p-2 rounded-full border-2 border-pink-500 cursor-pointer"></i>
+                    <i class="fa-regular fa-heart text-pink-500 bg-white p-2 rounded-full border-2 border-pink-500 cursor-pointer"></i>
                 </div>
-                <!-- Lặp lại thêm sản phẩm ở đây -->
+                <h3 class="text-lg font-semibold mt-2">{{ $product->name }}</h3>
+                <p class="text-gray-600">${{ number_format($product->price, 2) }}</p>
             </div>
-        </div>
+        @endforeach
+    </div>
+
+    <!-- Hiển thị phân trang -->
+    <div class="mt-4">
+        {{ $products->links() }}
     </div>
 </div>
+
+
+    </div>
+</div>
+<script src="https://cdn.tailwindcss.com"></script>
+
 @endsection

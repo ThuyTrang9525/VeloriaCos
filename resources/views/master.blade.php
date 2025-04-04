@@ -38,6 +38,7 @@
     display: flex;
     flex-direction: column; /* Đảm bảo các phần tử con xếp theo chiều dọc */
     min-height: 100vh;
+    background-color: white;
 }
 
 .content {
@@ -58,10 +59,6 @@
     @include('components.header')
     @yield('content')
     @include('components.footer') <!-- Footer nằm ở dưới cùng -->
-
-    @yield('content')   
-
-    @include('components.footer')
 
     <!-- Scripts -->
     @stack('scripts')
