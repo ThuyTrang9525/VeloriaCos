@@ -1,12 +1,11 @@
-body {
+
+
+.header {
     background-color: white;
     font-family: Quicksand;
     margin: 0;
     padding: 0;
     margin-bottom: 100px;
-}
-
-.header {
     position: fixed;
     top: 0;
     left: 0;
@@ -201,11 +200,13 @@ body {
     border-radius: 25px;
     margin: 0 20px 0 80px;
     padding: 2.5px 0 0 25px;
+    font-family: Quicksand;
 }
 
 input:focus {
     border: none;  /* Ẩn viền khi có focus */
     outline: none; /* Loại bỏ outline mặc định khi focus */
+
   }
 
 .search-bar-container .submit-search-bar {
