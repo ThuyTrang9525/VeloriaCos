@@ -4,31 +4,60 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
+use App\Models\Review;
+use App\Models\CategoryController;
+
 
 class ProductController extends Controller
 {
     public function index()
     {
         $products = Product::all();
-        return view('product.index', compact('products'));
+        return view('master', compact('products'));
     }
 
-    public function show()
+    public function showProductDetail(Request $request, $id)
     {
-        $product = new Product([
-            'name' => 'Pullover Hoodie',
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            'price' => 27.00,
-            'image' => 'https://example.com/sample-image.jpg'
-        ]);
+        $product = Product::with('images')->findOrFail($id);
 
-        $relatedProducts = [
-            new Product(['name' => 'Fit Round-neck T-shirt', 'price' => 24.00, 'image' => 'https://example.com/sample1.jpg']),
-            new Product(['name' => 'Adult Quantity Tee', 'price' => 26.00, 'image' => 'https://example.com/sample2.jpg']),
-            new Product(['name' => 'ADP C-lick Ease Tee', 'price' => 28.00, 'image' => 'https://example.com/sample3.jpg']),
-            new Product(['name' => 'Relaxed Fit Sweatshirt', 'price' => 32.00, 'image' => 'https://example.com/sample4.jpg']),
-        ];
-        return view('Products.product_detail', compact('product', 'relatedProducts'));
+    
+        // Lấy các sản phẩm có cùng category
+        $relatedProducts = Product::with('images')
+                                   ->where('category_id', $product->category_id)
+                                   ->where('id', '!=', $product->id)  // Loại trừ sản phẩm hiện tại
+                                   ->get();
+    
+        // Lấy các sản phẩm có category > 1 (You may also like)
+        $youMayAlsoLikeProducts = Product::with('images')
+                                         ->where('category_id', '>', 1)
+                                         ->where('id', '!=', $product->id)  // Loại trừ sản phẩm hiện tại
+                                         ->get();
+    
+        // Lấy danh mục (category) của sản phẩm
+        $category = Category::find($product->category_id);
+        $activeTab = $request->query('tab', 'description');
+
+    
+        return view('Products.product_detail', compact('product', 'relatedProducts', 'youMayAlsoLikeProducts', 'category', 'activeTab'));
+    }
+
+    public function getReviews($product_id)
+    {
+        $reviews = Review::where('product_id', $product_id)->get();
+        return response()->json($reviews);
+    }
+
+    public function showCategory($id)
+    {
+        // Lấy category theo id
+        $category = Category::findOrFail($id);
+
+        // Lấy các sản phẩm thuộc category đó
+        $products = Product::where('category_id', $id)->get();
+
+        // Trả về view với dữ liệu category và products
+        return view('Products.show_category', compact('category', 'products'));
     }
     public function checkout()
     {
@@ -66,4 +95,30 @@ class ProductController extends Controller
     {
         return view('checkout-success');
     }
+
+    public function getListProduct($category_id = null)
+    {
+        $sidebar = Category::all();
+    
+        // Nếu có category_id, lấy sản phẩm theo danh mục
+        if ($category_id) {
+            $products = Product::where('category_id', $category_id)
+                ->with('primaryImage')
+                ->paginate(12);  // Chỉnh sửa số lượng sản phẩm trên mỗi trang (ví dụ: 12)
+        } else {
+            // Nếu không có category_id, lấy tất cả sản phẩm
+            $products = Product::with('primaryImage')->paginate(12);
+        }
+    
+        return view('Products.product_list')->with([
+            'sidebar' => $sidebar,
+            'products' => $products
+        ]);
+    }
+    
+
+    
+
+
+    
 }
