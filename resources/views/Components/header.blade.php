@@ -9,7 +9,7 @@
     
             <div class="middle-header">
                 <div class="info-LogoNameWeb">
-                    <img src="images\LogoVeloriaCos.png" alt="">
+                    <img src="{{ asset('images/LogoVeloriaCos.png') }}" alt="Logo VeloriaCos">
                     <h1>Veloria Cos</h1>
                 </div>
 

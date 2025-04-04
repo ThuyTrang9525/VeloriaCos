@@ -1,35 +1,37 @@
 @extends('master')
-
 @section('content')
-<div class="container mx-auto pt-[80px]">
-    <div class="flex gap-6 bg-white p-6 rounded-lg shadow-lg">
-        <div class="bg-white p-6 rounded-lg shadow-lg">
-            <div class="flex gap-6 bg-white p-6 rounded-lg shadow-lg">
+<div class="container bg-white mx-auto p-[120px]">
+    <div class="flex gap-6  p-6 rounded-lg ">
+        <div class=" p-6 rounded-lg ">
+            <div class="flex gap-6  p-6 rounded-lg ">
                 <!-- Product Image -->
+                
                 <div class="w-1/2">
-                    <!-- Ảnh chính nhỏ hơn -->
-                    <img id="main-image" class="w-2/3 rounded-lg mx-auto" 
-                         src="{{ $product->images->first() ? $product->images->first()->image_url : asset('path_to_default_image.jpg') }}" alt="Product Image" class="w-full rounded-lg"
-                        alt="Product Image">
-                    
                     <!-- Thumbnail -->
-                    <div class="flex justify-center gap-2 mt-4">
-                        @foreach ($product->images as $index => $image)
-                            <img class="w-1/5 rounded-lg cursor-pointer" 
-                                src="{{ $image->image_url }}" 
-                                alt="Thumbnail {{ $index+1 }}" 
-                                onclick="changeImage({{ $index }})">
-                        @endforeach
+                    <div class="flex justify-between text-gray-400 text-sm pt-6 mb-2 mr-[110px]">
+                        <span id="prev-button" class="cursor-pointer" onclick="changeImage(currentImage - 1)">&lt; PREV</span>
+                        <span id="next-button" class="cursor-pointer" onclick="changeImage(currentImage + 1)">NEXT &gt;</span>
+                    </div>
+                    <div id="product" data-images="{{ json_encode($product->images->pluck('image_url')) }}" data-id="{{ $product->id }}">
+                        <!-- Ảnh chính -->
+                        <img class="w-[450px] h-[450px] object-cover" id="main-image" src="{{ $product->images->first() ? $product->images->first()->image_url : asset('path_to_default_image.jpg') }}" alt="Product Image">
+                    
+                        <!-- Thumbnails -->
+                        <div class="flex justify-center gap-4 mt-4 mr-[100px]">
+                            @foreach ($product->images as $index => $image)
+                                <img class="w-1/4 rounded-lg cursor-pointer thumbnail" 
+                                     src="{{ $image->image_url }}" 
+                                     alt="Thumbnail {{ $index+1 }}" 
+                                     data-index="{{ $index }}">
+                            @endforeach
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Product Details -->
                 <div class="w-1/2">
                     <!-- Navigation -->
-                    <div class="flex justify-between text-gray-400 text-sm pt-6 mb-4">
-                        <span id="prev-button" class="cursor-pointer" onclick="changeImage(currentImage - 1)">&lt; PREV</span>
-                        <span id="next-button" class="cursor-pointer" onclick="changeImage(currentImage + 1)">NEXT &gt;</span>
-                    </div>
+                    
 
                     <!-- Product Title & Description -->
                     <h1 class="text-4xl font-bold pt-6">{{ $product->name }}</h1>
@@ -80,14 +82,56 @@
                         Add to Wishlist
                     </button>
                 </div>
-
             </div>
-
+            <div class="mt-8">
+                <!-- Tabs -->
+                <div class="border-b border-gray-200">
+                    <nav class="tab-links flex space-x-4 gap-[400px]">
+                        <a href="#" class="py-2 font-semibold text-black border-b-2 border-black" onclick="showTab('description')" id="description-link">Description</a>
+                        <a href="#" class="py-2 text-gray-500" onclick="showTab('reviews')" id="reviews-link">Reviews ({{ $product->reviews->count() }})</a>
+                        <a href="#" class="py-2 text-gray-500" onclick="showTab('more-products')" id="more-products-link">More Products</a>
+                    </nav>
+                </div>
+            
+                <!-- Content Sections -->
+                
+                    <!-- Description -->
+                    <div id="description" class="p-4">
+                        <p class="text-gray-600 mt-2">{{ $product->description }}</p>
+                    </div>
+            
+                    <!-- Reviews -->
+                    <div id="reviews" class="p-4 hidden">
+                        @if ($product->reviews->isEmpty())
+                            <p class="text-gray-600 mt-2">No reviews yet.</p>
+                        @else
+                            <ul class="mt-2">
+                                @foreach ($product->reviews as $review)
+                                    <li class="border-b py-2">⭐ {{ $review->rating }} - {{ $review->comment }}</li>
+                                @endforeach
+                            </ul>
+                        @endif
+                    </div>
+            
+                    <!-- More Products -->
+                    <div id="more-products" class="p-4 hidden">
+                        <ul class="mt-2 flex space-x-4">
+                            @foreach ($relatedProducts->take(5) as $product)
+                                <li class="py-2">
+                                    <a href="{{ route('product.show', $product->id) }}">
+                                        <img src="{{ $product->images->first()->image_url }}" alt="Product Image" alt="Product Image" class="w-full h-80 object-cover rounded-lg">
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                
+            </div>
             <div class="mt-8">
                 <h2 class="text-2xl font-bold">You may also like...</h2>
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-4">
                     @foreach ($youMayAlsoLikeProducts->take(4) as $product) <!-- Lấy tối đa 4 sản phẩm -->
-                        <div class="bg-white p-4 rounded-lg shadow-lg relative text-center">
+                        <div class="bg-white p-4 rounded-lg  relative text-center">
                             <!-- Đường dẫn tới chi tiết sản phẩm -->
                             <a href="{{ route('product.show', $product->id) }}">
                                 <img src="{{ $product->images->first()->image_url }}" alt="Product Image" class="w-full h-80 object-cover rounded-lg">
@@ -111,7 +155,7 @@
                 <h2 class="text-2xl font-bold">Related Products</h2>
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-4">
                     @foreach ($relatedProducts->take(4) as $product) <!-- Lấy tối đa 4 sản phẩm -->
-                        <div class="bg-white p-4 rounded-lg shadow-lg relative text-center">
+                        <div class="bg-white p-4 rounded-lg  relative text-center">
                             <!-- Đường dẫn tới chi tiết sản phẩm -->
                             <a href="{{ route('product.show', $product->id) }}">
                                 <img src="{{ $product->images->first()->image_url }}" alt="Product Image" class="w-full h-80 object-cover rounded-lg">
@@ -134,5 +178,6 @@
     </div>
 </div>
 <script src="https://cdn.tailwindcss.com"></script>
+
 <script src="{{ asset('assets/js/product_detail.js') }}"></script>
 @endsection

@@ -70,5 +70,10 @@
     margin-top: 35px;
     line-height: 1.5;
 }
-
+.intro-footer-detail img {
+    margin-left: 80px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
 

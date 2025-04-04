@@ -33,5 +33,8 @@ class Product extends Model
     {
         return asset('storage/' . $this->image);
     }
-
+    public function reviews()
+    {
+        return $this->hasMany(Review::class, 'product_id');
+    }
 }

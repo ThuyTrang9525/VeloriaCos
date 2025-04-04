@@ -3,7 +3,7 @@
         <div class="footer-container">
             <div class="intro-footer">
                 <div class="intro-footer-detail">
-                    <img class="logoWebsite-footer" src="images\LogoVeloriaCos.png" alt="">
+                    <img src="{{ asset('images/LogoVeloriaCos.png') }}" alt="Logo VeloriaCos">
                     <h1 style="margin: 0; font-family: 'Calistoga'; font-size: 30px; font-weight: lighter; color: #E68585;">Veloria Cos</h1>
                 </div>
 

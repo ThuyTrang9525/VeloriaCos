@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Review;
 use App\Models\CategoryController;
 
 
@@ -16,7 +17,7 @@ class ProductController extends Controller
         return view('master', compact('products'));
     }
 
-    public function showProductDetail($id)
+    public function showProductDetail(Request $request, $id)
     {
         $product = Product::with('images')->findOrFail($id);
 
@@ -35,10 +36,29 @@ class ProductController extends Controller
     
         // Lấy danh mục (category) của sản phẩm
         $category = Category::find($product->category_id);
+        $activeTab = $request->query('tab', 'description');
+
     
-        return view('Products.product_detail', compact('product', 'relatedProducts', 'youMayAlsoLikeProducts', 'category'));
+        return view('Products.product_detail', compact('product', 'relatedProducts', 'youMayAlsoLikeProducts', 'category', 'activeTab'));
     }
-    
+
+    public function getReviews($product_id)
+    {
+        $reviews = Review::where('product_id', $product_id)->get();
+        return response()->json($reviews);
+    }
+
+    public function showCategory($id)
+    {
+        // Lấy category theo id
+        $category = Category::findOrFail($id);
+
+        // Lấy các sản phẩm thuộc category đó
+        $products = Product::where('category_id', $id)->get();
+
+        // Trả về view với dữ liệu category và products
+        return view('Products.show_category', compact('category', 'products'));
+    }
     public function checkout()
     {
         $products = Product::all();

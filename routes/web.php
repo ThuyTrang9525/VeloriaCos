@@ -21,9 +21,10 @@ Route::post('/postlogin', [UserControllers::class, 'postlogin'])->name('postlogi
 
 Route::get('/admin',[AdminControllers::class,'getAdmin'])-> name('admin');
 
-Route::get('/homepage', [UserControllers::class, 'getHomepage']);
+Route::get('/homepage', [UserControllers::class, 'getHomepage'])->name('homepage');
+Route::get('/logout', [UserControllers::class, 'logout'])->name('logout');
 Route::get('/product/{id}', [ProductController::class, 'showProductDetail'])->name('product.show');
-
+Route::get('/category/{id}', [ProductController::class, 'showCategory'])->name('category.show');
 Route::get('/checkout', [ProductController::class, 'checkout'])->name('checkout');
 Route::post('/checkout', [ProductController::class, 'placeOrder'])->name('checkout.store');
 Route::get('/checkout-success', [ProductController::class, 'success'])->name('checkout.success');
