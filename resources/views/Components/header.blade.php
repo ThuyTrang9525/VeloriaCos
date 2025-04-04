@@ -1,16 +1,17 @@
-<div class="header">
-    <div class="header-container">
-        <div class="top-header">
-            <div class="left-top-header"></div>
-            <div class="middle-top-header"></div>
-            <div class="right-top-header"></div>
-        </div>
-
-        <div class="middle-header">
-            <div class="info-LogoNameWeb">
-                <img src="{{ asset('images/LogoVeloriaCos.png') }}" alt="">
-                <h1>Veloria Cos</h1>
+<div class="container">
+    <div class="header">
+        <div class="header-container">
+            <div class="top-header">
+                <div class="left-top-header"></div>
+                <div class="middle-top-header"></div>
+                <div class="right-top-header"></div>
             </div>
+    
+            <div class="middle-header">
+                <div class="info-LogoNameWeb">
+                    <img src="images\LogoVeloriaCos.png" alt="">
+                    <h1>Veloria Cos</h1>
+                </div>
 
             <div class="info-ContactWeb">
                 <div class="info-Detail">
@@ -61,9 +62,10 @@
                 <button type="submit" class="submit-search-bar"><ion-icon name="search-outline"></ion-icon></button>
             </div>
 
-            <div class="icon-shopping-cart">
-                <p class="quantity-icon-shopping-cart">0</p>
-                <ion-icon name="cart-outline"></ion-icon>
+                <div class="icon-shopping-cart">
+                    <p class="quantity-icon-shopping-cart">0</p>
+                    <ion-icon name="cart-outline"></ion-icon>
+                </div>
             </div>
         </div>
     </div>
