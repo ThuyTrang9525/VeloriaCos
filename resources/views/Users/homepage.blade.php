@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="assets\css\homepage.css">
+    <script src="/js/homepage.js"></script>
+    <!-- Thêm Swiper CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+<!-- Thêm Swiper JS -->
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
 
 </head>
 <body>
@@ -30,29 +39,41 @@
 <div class="collection">
     <h2>New Collection</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    <div class="items">
-        <div class="item">
-            <img src="/images/homepage/dress-icon.png" alt="Dress">
-            <h3>Category 1</h3>
-            <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
+    <div class="swiper mySwiper"> <!-- Changed class to 'swiper' -->
+        <div class="swiper-wrapper">
+            <div class="swiper-slide item">
+                <img src="/images/homepage/dress-icon.png" alt="Dress">
+                <h3>Category 1</h3>
+                <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
+            </div>
+            <div class="swiper-slide item">
+                <img src="/images/homepage/dress-icon.png" alt="Dress">
+                <h3>Category 2</h3>
+                <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
+            </div>
+            <div class="swiper-slide item">
+                <img src="/images/homepage/dress-icon.png" alt="Dress">
+                <h3>Category 3</h3>
+                <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
+            </div>
+            <div class="swiper-slide item">
+                <img src="/images/homepage/dress-icon.png" alt="Dress">
+                <h3>Category 4</h3>
+                <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
+            </div>
+            <div class="swiper-slide item">
+                <img src="/images/homepage/dress-icon.png" alt="Dress">
+                <h3>Category 5</h3>
+                <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
+            </div>
         </div>
-        <div class="item">
-            <img src="/images/homepage/dress-icon.png" alt="Dress">
-            <h3>Category 1</h3>
-            <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
-        </div>
-        <div class="item">
-            <img src="/images/homepage/dress-icon.png" alt="Dress">
-            <h3>Category 1</h3>
-            <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
-        </div>
-        <div class="item">
-            <img src="/images/homepage/dress-icon.png" alt="Dress">
-            <h3>Category 1</h3>
-            <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
-        </div>
+        <!-- Pagination for Swiper -->
+        <div class="swiper-pagination"></div>
     </div>
 </div>
+
+
+
 
 <div class="collection-div">
     <h2 class="collection-title">Our Featured Collections</h2>
@@ -143,6 +164,37 @@
     </div>
 </div>
 </div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 4,
+        spaceBetween: 20,
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination", // Add pagination control
+            clickable: true,
+        },
+        autoplay: {
+            delay: 3000, // chuyển slide sau 3 giây
+            disableOnInteraction: false, // vẫn autoplay dù người dùng bấm nút
+        },
+        breakpoints: {
+            1024: {
+                slidesPerView: 4,
+            },
+            768: {
+                slidesPerView: 2,
+            },
+            480: {
+                slidesPerView: 1,
+            },
+        },
+    });
+});
+
+
+
+</script>
 </body>
 </html>
 @include('components.footer')
