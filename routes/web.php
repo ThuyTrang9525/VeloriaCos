@@ -25,18 +25,14 @@ Route::post('/logout', [UserControllers::class, 'logout'])->name('logout');
 Route::get('/admin',[AdminControllers::class,'getAdmin'])-> name('admin');
 
 
+Route::get('/homepage', [UserControllers::class, 'getHomepage'])->name('homepage');
+Route::get('/logout', [UserControllers::class, 'logout'])->name('logout');
 Route::get('/product/{id}', [ProductController::class, 'showProductDetail'])->name('product.show');
 // Route để lấy danh sách sản phẩm tổng quát
 Route::get('/product_list', [ProductController::class, 'getListProduct'])->name('product_list');
-
 // Route để lấy sản phẩm theo danh mục
 Route::get('/product_list/{category_id}', [ProductController::class, 'getListProduct'])->name('category_products');
-
-
-
-Route::get('/homepage', [UserControllers::class, 'getHomepage']) -> name('homepage');
-
-
+Route::get('/category/{id}', [ProductController::class, 'showCategory'])->name('category.show');
 Route::get('/checkout', [ProductController::class, 'checkout'])->name('checkout');
 Route::post('/checkout', [ProductController::class, 'placeOrder'])->name('checkout.store');
 Route::get('/checkout-success', [ProductController::class, 'success'])->name('checkout.success');
