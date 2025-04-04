@@ -22,7 +22,13 @@ Route::post('/postlogin', [UserControllers::class, 'postlogin'])->name('postlogi
 Route::get('/admin',[AdminControllers::class,'getAdmin'])-> name('admin');
 
 Route::get('/homepage', [UserControllers::class, 'getHomepage']);
+
+
+// Route::get('/featured-collections', [ProductController::class, 'showFeaturedCollections'])->name('featured.collections');
+
 Route::get('/product', [ProductController::class, 'show'])->name('product.show');
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+
 
 Route::get('/checkout', [ProductController::class, 'checkout'])->name('checkout');
 Route::post('/checkout', [ProductController::class, 'placeOrder'])->name('checkout.store');

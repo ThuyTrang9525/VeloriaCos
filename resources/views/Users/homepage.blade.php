@@ -1,24 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="assets\css\homepage.css">
-    <script src="/js/homepage.js"></script>
-    <!-- Thêm Swiper CSS -->
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
-<!-- Thêm Swiper JS -->
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-
-
-</head>
-<body>
+@extends('master')
+@section('content')
     
-@include('components.header')
 <div class="container-homepage">
 
 <div class="banner-container">
@@ -36,90 +18,115 @@
     </div>
 </div>
 
-<div class="collection">
+<div class="collection veloria-swiper">
     <h2>New Collection</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    <div class="swiper mySwiper"> <!-- Changed class to 'swiper' -->
-        <div class="swiper-wrapper">
-            <div class="swiper-slide item">
-                <img src="/images/homepage/dress-icon.png" alt="Dress">
-                <h3>Category 1</h3>
-                <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
-            </div>
-            <div class="swiper-slide item">
-                <img src="/images/homepage/dress-icon.png" alt="Dress">
-                <h3>Category 2</h3>
-                <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
-            </div>
-            <div class="swiper-slide item">
-                <img src="/images/homepage/dress-icon.png" alt="Dress">
-                <h3>Category 3</h3>
-                <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
-            </div>
-            <div class="swiper-slide item">
-                <img src="/images/homepage/dress-icon.png" alt="Dress">
-                <h3>Category 4</h3>
-                <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
-            </div>
-            <div class="swiper-slide item">
-                <img src="/images/homepage/dress-icon.png" alt="Dress">
-                <h3>Category 5</h3>
-                <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
-            </div>
-        </div>
-        <!-- Pagination for Swiper -->
-        <div class="swiper-pagination"></div>
+    <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+        <a href="#" class="swiper-slide item">
+            <img src="/images/homepage/dress-icon.png" alt="Dress">
+            <h3>Anime & Game</h3>
+            <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
+        </a>
+        <a href="#" class="swiper-slide item">
+            <img src="/images/homepage/dress-icon.png" alt="Dress">
+            <h3>Modernized Traditional</h3>
+            <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
+        </a>
+        <a href="#" class="swiper-slide item">
+            <img src="/images/homepage/dress-icon.png" alt="Dress">
+            <h3>Traditional Costumes of Nations & Ethnic Groups</h3>
+            <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
+        </a>
+        <a href="#" class="swiper-slide item">
+            <img src="/images/homepage/dress-icon.png" alt="Dress">
+            <h3>Lolita & Fashion Cosplay</h3>
+            <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
+        </a>
+        <a href="#" class="swiper-slide item">
+            <img src="/images/homepage/dress-icon.png" alt="Dress">
+            <h3>Princess Dresses</h3>
+            <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
+        </a>
     </div>
+    <div class="swiper-pagination"></div>
 </div>
 
+</div>
 
 <div class="collection-div">
     <h2 class="collection-title">Our Featured Collections</h2>
     <div class="collection-grid">
         <!-- Cột 1 -->
         <div class="collection-column">
-            <div class="collection-item">
-                <img src="/images/homepage/product-1.png" alt="Colorful Knitwear">
-                <p class="collection-label">COLORFUL KNITWEAR SERIES</p>
-                <span class="collection-arrow">→</span>
-            </div>
-            <div class="collection-item">
-                <img src="/images/homepage/product-2.png" alt="Top Pants Series">
-                <p class="collection-label">TOP PANTS SERIES</p>
-                <span class="collection-arrow">→</span>
-            </div>
+            @foreach($products->skip(3)->take(2) as $product) <!-- Bắt đầu từ sản phẩm có ID 10 -->
+                <div class="collection-item">
+                    @php
+                        // Lấy ảnh chính của sản phẩm
+                        $primaryImage = $product->images->where('is_primary', true)->first();
+                    @endphp
+                    @if($primaryImage)
+                        <img src="{{ $primaryImage->image_url }}" alt="{{ $product->name }}">
+                    @endif
+                    <p class="collection-label">{{ strtoupper($product->name) }}</p>
+                    <a href="{{ route('products.show', $product->id) }}"> <!-- Thêm thẻ a bao quanh mũi tên -->
+                        <span class="collection-arrow">→</span>
+                    </a>
+                </div>
+            @endforeach
         </div>
 
         <!-- Cột 2 (1 ảnh lớn) -->
         <div class="collection-column large">
-            <div class="collection-item">
-                <img src="/images/homepage/product-3.png" alt="Jiwoo Made Special Series">
-                <p class="collection-label">JIWOO MADE SPECIAL SERIES</p>
-                <span class="collection-arrow">→</span>
-            </div>
+            @if($products->skip(9)->count() >= 3) <!-- Bắt đầu từ sản phẩm thứ 10 -->
+                @php
+                    $product = $products->skip(9)->take(3)->last(); // Lấy sản phẩm thứ 3 trong danh sách bắt đầu từ id = 10
+                    $primaryImage = $product->images->where('is_primary', true)->first();
+                @endphp
+                <div class="collection-item">
+                    @if($primaryImage)
+                        <img src="{{ $primaryImage->image_url }}" alt="{{ $product->name }}">
+                    @endif
+                    <p class="collection-label">{{ strtoupper($product->name) }}</p>
+                    <a href="{{ route('products.show', $product->id) }}"> <!-- Thêm thẻ a bao quanh mũi tên -->
+                        <span class="collection-arrow">→</span>
+                    </a>
+                </div>
+            @endif
         </div>
 
         <!-- Cột 3 -->
         <div class="collection-column">
-            <div class="collection-item">
-                <img src="/images/homepage/product-4.png" alt="Reshider Top Series">
-                <p class="collection-label">RESHIDER TOP SERIES</p>
-                <span class="collection-arrow">→</span>
-            </div>
-            <div class="collection-item">
-                <img src="/images/homepage/product-5.png" alt="Sweet Dresses Series">
-                <p class="collection-label">SWEET DRESSES SERIES</p>
-                <span class="collection-arrow">→</span>
-            </div>
+            @foreach($products->skip(5)->skip(2)->take(2) as $product) <!-- Bắt đầu từ sản phẩm thứ 10 và lấy tiếp 2 sản phẩm -->
+                <div class="collection-item">
+                    @php
+                        // Lấy ảnh chính của sản phẩm
+                        $primaryImage = $product->images->where('is_primary', true)->first();
+                    @endphp
+                    @if($primaryImage)
+                        <img src="{{ $primaryImage->image_url }}" alt="{{ $product->name }}">
+                    @endif
+                    <p class="collection-label">{{ strtoupper($product->name) }}</p>
+                    <a href="{{ route('products.show', $product->id) }}"> <!-- Thêm thẻ a bao quanh mũi tên -->
+                        <span class="collection-arrow">→</span>
+                    </a>
+                </div>
+            @endforeach
         </div>
     </div>
 </div>
+
+
+
+
     
 <div class="why-shop">
     <h2 class="div-title">Why you’ll love to shop on our website</h2>
     <div class="features">
         <div class="feature-item">
-            <div class="icon"><i class="fas fa-heart"></i></div>
+            <div class="icon">
+                <i class="fas fa-heart"></i>
+            </div>
             <h3>Take care with love</h3>
             <p>We take care of your package with full attention and of course full of love...</p>
         </div>
@@ -162,6 +169,7 @@
     </div>
 </div>
 </div>
+@endsection
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     var swiper = new Swiper(".mySwiper", {
@@ -190,10 +198,4 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
-
 </script>
-</body>
-</html>
-@include('components.footer')
-

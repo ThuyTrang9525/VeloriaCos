@@ -44,7 +44,7 @@
 </head>
 <body class="bg-gray-100">
 <div class="container mx-auto ">
-    <div class="flex gap-6 bg-white p-6 rounded-lg shadow-lg">
+    <div class="flex gap-6 bg-white p-6 rounded-lg shadow-lg ">
         <div class="bg-white p-6 rounded-lg shadow-lg">
             <div class="flex gap-6 bg-white p-6 rounded-lg shadow-lg">
                 <!-- Product Image -->
