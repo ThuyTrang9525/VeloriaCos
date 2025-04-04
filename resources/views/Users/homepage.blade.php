@@ -161,7 +161,7 @@
 
 <div class="discount-banner">
     <div class="text-content">
-        <h1>Get <span class="highlight">50% Off</span></h1>
+        <h1>Get 50% Off</span></h1>
         <p>For all new product purchases <br> min. purchase Rp. 350.000</p>
     </div>
     <div class="image-container">

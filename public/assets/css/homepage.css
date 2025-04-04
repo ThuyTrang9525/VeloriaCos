@@ -1,5 +1,5 @@
 .container-homepage{
-    margin-top: 113px;
+    margin-top: 70px;
     /* max-width: 1150px; */
     /* margin: 0 auto; */
 }
@@ -164,7 +164,7 @@
 
 .swiper-wrapper .item h3 {
     margin: 10px 0;
-    font-size: 20px;
+    font-size: 16px;
     color: #333;
 }
 
@@ -334,7 +334,11 @@
 
 .why-shop .feature-item {
     width: 250px;
-    text-align: center !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .feature-item .icon {
@@ -347,7 +351,6 @@
     display: inline-block;
     font-size: 24px;
     margin-bottom: 15px;
-    margin-left: 90px;
     display: flex; 
     justify-content: center;  
     align-items: center;  
@@ -361,6 +364,7 @@
 .features .feature-item p {
     font-size: 14px;
     color: #555;
+    flex: 1;
 }
 
 /* ----------------------- */
@@ -436,7 +440,7 @@
 }
 
 .discount-banner .text-content {
-    max-width: 400px;
+    max-width: 500px;
     padding-left: 20px;
 }
 
