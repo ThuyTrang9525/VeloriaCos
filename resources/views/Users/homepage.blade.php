@@ -73,8 +73,6 @@
 </div>
 
 
-
-
 <div class="collection-div">
     <h2 class="collection-title">Our Featured Collections</h2>
     <div class="collection-grid">
