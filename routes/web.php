@@ -30,7 +30,7 @@ Route::get('/product_list', [ProductController::class, 'getListProduct'])->name(
 Route::get('/homepage', [UserControllers::class, 'getHomepage']) -> name('homepage');
 Route::get('/product', [ProductController::class, 'show'])->name('product.show');
 
-Route::get('/checkout', [ProductController::class, 'checkout'])->name('checkout');
+Route::get('/c  heckout', [ProductController::class, 'checkout'])->name('checkout');
 Route::post('/checkout', [ProductController::class, 'placeOrder'])->name('checkout.store');
 Route::get('/checkout-success', [ProductController::class, 'success'])->name('checkout.success');
 

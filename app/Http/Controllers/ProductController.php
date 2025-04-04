@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
+
+
 
 class ProductController extends Controller
 {
@@ -68,6 +71,10 @@ class ProductController extends Controller
     }
 
     public function getListProduct(){
-        return view('Products.product_list');
+        $sidebar = Category::all();        
+        $products = Product::where('is_primary', 1)->paginate(12); 
+
+        return view('Products.product_list')-> with(['sidebar' => $sidebar],['products' => $products]);
     }
+    
 }
