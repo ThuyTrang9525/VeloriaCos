@@ -52,6 +52,18 @@
     <link rel="stylesheet" href="assets\css\homepage.css">
     <link rel="stylesheet" href="assets\css\product_list.css">
 
+
+     <!-- link swiper -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- Thêm Swiper JS -->
+     <!-- Swiper CSS trước -->
+<link rel="stylesheet" href="swiper-bundle.min.css">
+
+<!-- CSS của bạn sau -->
+<link rel="stylesheet" href="your-custom-style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
 
 <body style="font-family: 'Quicksand', sans-serif;">

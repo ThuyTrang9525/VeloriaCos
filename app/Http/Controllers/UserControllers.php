@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use App\Models\ProductImage;
+
 
 class UserControllers extends Controller
 {
@@ -57,13 +59,22 @@ class UserControllers extends Controller
     return back()->with('error', 'Incorrect email or password');
 }
 
-    function getHomepage(){
-        return view('Users.homepage');
-    }
 
     public function logout()
     {
         Auth::logout();
         return redirect()->route('login')->with('success', 'Bạn đã đăng xuất thành công!');
     }
+  
+
+
+public function getHomepage()
+{
+    // Lấy tất cả sản phẩm cùng với hình ảnh (eager load quan hệ images)
+    $products = Product::with('images')->get();
+
+    // Trả về view và truyền biến $products vào view
+    return view('Users.homepage', compact('products'));
+}
+
 }
