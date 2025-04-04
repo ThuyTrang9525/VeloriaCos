@@ -50,15 +50,21 @@ class UserControllers extends Controller
 
         // Kiểm tra role_id và chuyển hướng tương ứng
         if ($user->role_id == 1) { // Admin
-            return redirect()->route('admin')->with('success', 'Login successful');
-        } elseif ($user->role_id == 2) { // User
             return redirect()->route('homepage')->with('success', 'Login successful');
+        } elseif ($user->role_id == 2) { // User
+            return redirect()->route('admin')->with('success', 'Login successful');
         }
     }
 
     return back()->with('error', 'Incorrect email or password');
 }
 
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login')->with('success', 'Bạn đã đăng xuất thành công!');
+    }
   
 
 

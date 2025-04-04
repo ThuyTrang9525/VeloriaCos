@@ -13,54 +13,66 @@
                     <h1>Veloria Cos</h1>
                 </div>
 
-                <div class="info-ContactWeb">
-                    <div class="info-Detail">
-                        <ion-icon name="call-outline"></ion-icon>
-                        <div>
-                            <p>Call anytime</p>
-                            <h6>+ 84 123 789 456</h6>
-                        </div>
-                    </div>
-
-                    <div class="info-Detail">
-                        <ion-icon name="mail-outline"></ion-icon>
-                        <div class="div-info-Detail2">
-                            <p>Send email</p>
-                            <h6>VeloriaCos@gmail.com</h6>
-                        </div>
-                    </div>
-
-                    <div class="info-Detail">
-                        <ion-icon name="map-outline"></ion-icon>
-                        <div>
-                            <p>Address</p>
-                            <h6>Sơn Trà, Đà Nẵng</h6>
-                        </div>
+            <div class="info-ContactWeb">
+                <div class="info-Detail">
+                    <ion-icon name="call-outline"></ion-icon>
+                    <div>
+                        <p>Call anytime</p>
+                        <h6>+ 84 123 789 456</h6>
                     </div>
                 </div>
+
+                <div class="info-Detail">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <div class="div-info-Detail2">
+                        <p>Send email</p>
+                        <h6>VeloriaCos@gmail.com</h6>
+                    </div>
+                </div>
+
+                <div class="info-Detail">
+                    <ion-icon name="map-outline"></ion-icon>
+                    <div>
+                        <p>Address</p>
+                        <h6>Sơn Trà, Đà Nẵng</h6>
+                    </div>
+                </div>
+            </div>
 
                 <div class="info-Account">
-                    <img src="../../../images/avatar-default.jpg" alt="">
+                    <img src="{{ Auth::check() ? Auth::user()->avatar : asset('images\avatar.png') }}" alt="">
                     <div>
-                        <p>Tài khoản</p>
-                        <a href="#">Đăng nhập</a>
+                        @if(Auth::check())
+                            <p>{{ Auth::user()->name }}</p>
+                            <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                Đăng xuất
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        @else
+                            <p>Tài khoản</p>
+                            <a href="{{ route('login') }}">Đăng nhập</a>
+                        @endif
                     </div>
                 </div>
+
             </div>
     
             <div class="bottom-header">
                 <ul class="navigate-header">
-                    <li>Home</li>
-                    <li>Shop</li>
+                <a href="{{ route('homepage') }}"><li>Shop</li></a>
+                <a href="{{ route('product_list') }}"><li>Shop</li></a>
                     <li>Collections</li>
                     <li>About us</li>
                     <li>Contact</li>
                 </ul>
 
-                <div class="search-bar-container">
-                    <input type="text" class="input-search-bar" placeholder="Nhập sản phẩm cần tìm kiếm">
-                    <button type="submit" class="submit-search-bar"><ion-icon name="search-outline"></ion-icon></button>
-                </div>
+            <div class="search-bar-container">
+                <input type="text" class="input-search-bar" placeholder="Nhập sản phẩm cần tìm kiếm">
+                <button type="submit" class="submit-search-bar"><ion-icon name="search-outline"></ion-icon></button>
+            </div>
 
                 <div class="icon-shopping-cart">
                     <p class="quantity-icon-shopping-cart">0</p>
@@ -69,4 +81,4 @@
             </div>
         </div>
     </div>
-    </div>
+</div>
