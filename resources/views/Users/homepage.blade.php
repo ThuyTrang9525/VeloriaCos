@@ -69,7 +69,7 @@
                         <img src="{{ $primaryImage->image_url }}" alt="{{ $product->name }}">
                     @endif
                     <p class="collection-label">{{ strtoupper($product->name) }}</p>
-                    <a href="{{ route('products.show', $product->id) }}"> <!-- Thêm thẻ a bao quanh mũi tên -->
+                    <a href="{{ route('product.show', $product->id) }}"> <!-- Thêm thẻ a bao quanh mũi tên -->
                         <span class="collection-arrow">→</span>
                     </a>
                 </div>
@@ -88,7 +88,7 @@
                         <img src="{{ $primaryImage->image_url }}" alt="{{ $product->name }}">
                     @endif
                     <p class="collection-label">{{ strtoupper($product->name) }}</p>
-                    <a href="{{ route('products.show', $product->id) }}"> <!-- Thêm thẻ a bao quanh mũi tên -->
+                    <a href="{{ route('product.show', $product->id) }}"> <!-- Thêm thẻ a bao quanh mũi tên -->
                         <span class="collection-arrow">→</span>
                     </a>
                 </div>
@@ -107,7 +107,7 @@
                         <img src="{{ $primaryImage->image_url }}" alt="{{ $product->name }}">
                     @endif
                     <p class="collection-label">{{ strtoupper($product->name) }}</p>
-                    <a href="{{ route('products.show', $product->id) }}"> <!-- Thêm thẻ a bao quanh mũi tên -->
+                    <a href="{{ route('product.show', $product->id) }}"> <!-- Thêm thẻ a bao quanh mũi tên -->
                         <span class="collection-arrow">→</span>
                     </a>
                 </div>
