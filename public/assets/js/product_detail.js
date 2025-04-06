@@ -49,3 +49,11 @@ function showTab(tabId) {
 }
 // Default tab to show
 showTab('description');
+
+
+const quantityInput = document.getElementById('product-quantity');
+const hiddenQuantityInput = document.getElementById('quantity-input');
+
+quantityInput.addEventListener('input', function() {
+    hiddenQuantityInput.value = quantityInput.value;
+});

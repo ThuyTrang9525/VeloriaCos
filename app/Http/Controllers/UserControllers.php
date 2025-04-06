@@ -77,7 +77,4 @@ public function getHomepage()
     return view('Users.homepage', compact('products'));
 }
 
-function getCart(){
-    return view('Users.cart');
-}
 }
