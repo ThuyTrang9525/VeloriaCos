@@ -23,31 +23,13 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     <div class="swiper mySwiper">
     <div class="swiper-wrapper">
-        <a href="#" class="swiper-slide item">
-            <img src="/images/homepage/dress-icon.png" alt="Dress">
-            <h3>Anime & Game</h3>
-            <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
-        </a>
-        <a href="#" class="swiper-slide item">
-            <img src="/images/homepage/dress-icon.png" alt="Dress">
-            <h3>Modernized Traditional</h3>
-            <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
-        </a>
-        <a href="#" class="swiper-slide item">
-            <img src="/images/homepage/dress-icon.png" alt="Dress">
-            <h3>Traditional Costumes of Nations & Ethnic Groups</h3>
-            <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
-        </a>
-        <a href="#" class="swiper-slide item">
-            <img src="/images/homepage/dress-icon.png" alt="Dress">
-            <h3>Lolita & Fashion Cosplay</h3>
-            <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
-        </a>
-        <a href="#" class="swiper-slide item">
-            <img src="/images/homepage/dress-icon.png" alt="Dress">
-            <h3>Princess Dresses</h3>
-            <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
-        </a>
+        @foreach ($categories as $category)
+            <a href="{{ route('category.show', $category->id) }}" class="swiper-slide item">
+                <img src="/images/homepage/dress-icon.png" alt="Dress">
+                <h3>{{ $category->name }}</h3>
+                <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
+            </a>
+        @endforeach
     </div>
     <div class="swiper-pagination"></div>
 </div>

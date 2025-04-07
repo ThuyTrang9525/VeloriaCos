@@ -25,7 +25,6 @@ Route::post('/logout', [UserControllers::class, 'logout'])->name('logout');
 
 Route::get('/admin',[AdminControllers::class,'getAdmin'])-> name('admin');
 
-
 Route::get('/homepage', [UserControllers::class, 'getHomepage'])->name('homepage');
 Route::get('/cart', [UserControllers::class, 'getcart']);
 
