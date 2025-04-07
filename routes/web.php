@@ -22,6 +22,8 @@ Route::get('/login', [UserControllers::class, 'getLogin'])->name('login');
 Route::post('/postlogin', [UserControllers::class, 'postlogin'])->name('postlogin');
 Route::post('/logout', [UserControllers::class, 'logout'])->name('logout');
 
+Route::get('/search', [ProductController::class, 'search'])->name('search');
+
 
 Route::get('/admin',[AdminControllers::class,'getAdmin'])-> name('admin');
 

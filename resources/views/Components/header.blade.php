@@ -69,8 +69,10 @@
             </ul>
 
         <div class="search-bar-container">
-            <input type="text" class="input-search-bar" placeholder="Nhập sản phẩm cần tìm kiếm">
-            <button type="submit" class="submit-search-bar"><ion-icon name="search-outline"></ion-icon></button>
+            <form role="search" method="get" id="searchform" action="{{ route('search') }}">
+                <input type="text" name="keyword" id="keyword" class="input-search-bar" placeholder="Nhập sản phẩm cần tìm kiếm">
+                <button type="submit" id="searchsubmit" class="submit-search-bar"><ion-icon name="search-outline"></ion-icon></button>
+            </form>
         </div>
 
         <a href="{{ route('cart.index') }}" class="icon-shopping-cart">

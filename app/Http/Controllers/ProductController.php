@@ -116,7 +116,13 @@ class ProductController extends Controller
         ]);
     }
     
+    public function search(Request $request){
+        $keyword = $request->input('keyword');
+        $productType = Category::all();
+        $products = Product::where('name', 'like', '%' . $keyword . '%')->get();
 
+        return view('products.searchResult', compact('products','productType'));
+    }
     
 
 
