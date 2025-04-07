@@ -62,8 +62,8 @@
     
             <div class="bottom-header">
                 <ul class="navigate-header">
-                <a href="{{ route('homepage') }}"><li>Shop</li></a>
-                <a href="{{ route('product_list') }}"><li>Shop</li></a>
+                <a href="{{ route('homepage') }}"><li>Homepage</li></a>
+                <a href="{{ route('product_list') }}"><li>Product</li></a>
                     <li>Collections</li>
                     <li>About us</li>
                     <li>Contact</li>

@@ -169,17 +169,11 @@
                                 <img src="{{ $product->images->first()->image_url }}" alt="Product Image" class="w-full h-80 object-cover rounded-lg">
                             </a>
                             <!-- Icons: Giỏ hàng và Tim -->
-                            <div class="absolute top-2 right-2 flex gap-2">
-                                <!-- Icon giỏ hàng -->
-                                <i class="fa-solid fa-cart-plus text-pink-500 bg-white p-2 rounded-full border-2 border-pink-500 cursor-pointer"></i>
-                                <!-- Icon yêu thích --><div class="absolute top-2 right-2 flex gap-2">
+                            <div class="absolute top-2 right-2 flex gap-2">              
                                 <!-- Icon giỏ hàng -->
                                 <i class="fa-solid fa-cart-plus text-pink-500 bg-white p-2 rounded-full border-2 border-pink-500 cursor-pointer" onclick="addToCart({{ $product->id }})"></i>
                                 <!-- Icon yêu thích -->
-                                <i class="fa-regular fa-heart text-pink-500 bg-white p-2 rounded-full border-2 border-pink-500 cursor-pointer"></i>
-                            </div>
-
-                                <i class="fa-regular fa-heart text-pink-500 bg-white p-2 rounded-full border-2 border-pink-500 cursor-pointer"></i>
+                                <i class="fa-regular fa-heart text-pink-500 bg-white p-2 rounded-full border-2 border-pink-500 cursor-pointer"></i>                          
                             </div>
                             <h3 class="text-lg font-semibold mt-2">{{ $product->name }}</h3>
                             <p class="text-gray-600">{{ $product->price }}</p>
