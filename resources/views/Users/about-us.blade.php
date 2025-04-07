@@ -2,32 +2,31 @@
 @section('content')
 <div class="container-about-us">
 
-<div class="about-us-swiper-container">
-  <div class="swiper about-us-swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img src="https://i.pinimg.com/736x/f7/2e/5a/f72e5ab17b4ecc8be010676ddcaba9d5.jpg" alt="About Slide 1" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://i.pinimg.com/736x/e9/b3/34/e9b33430b42822e748242e61d77703f5.jpg" alt="About Slide 2" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://i.pinimg.com/736x/93/25/6c/93256c3f91680c4df7dca525d3d9de5b.jpg" alt="About Slide 3" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://i.pinimg.com/736x/b7/d5/ac/b7d5ac49c5520ffd8bfa69910a897d30.jpg" alt="About Slide 4" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://i.pinimg.com/736x/19/2f/b1/192fb10202955bdd406636d217f7f0d6.jpg" alt="About Slide 5" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://i.pinimg.com/736x/b3/72/68/b372680b2b22b1f3fef088c867039bcb.jpg" alt="About Slide 6" />
-      </div>
+    <div class="about-us-swiper-container">
+    <div class="swiper about-us-swiper">
+        <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img src="https://i.pinimg.com/736x/f7/2e/5a/f72e5ab17b4ecc8be010676ddcaba9d5.jpg" alt="About Slide 1" />
+        </div>
+        <div class="swiper-slide">
+            <img src="https://i.pinimg.com/736x/e9/b3/34/e9b33430b42822e748242e61d77703f5.jpg" alt="About Slide 2" />
+        </div>
+        <div class="swiper-slide">
+            <img src="https://i.pinimg.com/736x/93/25/6c/93256c3f91680c4df7dca525d3d9de5b.jpg" alt="About Slide 3" />
+        </div>
+        <div class="swiper-slide">
+            <img src="https://i.pinimg.com/736x/b7/d5/ac/b7d5ac49c5520ffd8bfa69910a897d30.jpg" alt="About Slide 4" />
+        </div>
+        <div class="swiper-slide">
+            <img src="https://i.pinimg.com/736x/19/2f/b1/192fb10202955bdd406636d217f7f0d6.jpg" alt="About Slide 5" />
+        </div>
+        <div class="swiper-slide">
+            <img src="https://i.pinimg.com/736x/b3/72/68/b372680b2b22b1f3fef088c867039bcb.jpg" alt="About Slide 6" />
+        </div>
+        </div>
+        <div class="swiper-pagination about-us-pagination"></div>
     </div>
-    <div class="swiper-pagination about-us-pagination"></div>
-  </div>
-</div>
-
+    </div>
 
         <section class="about-us">
             <h2 class="about-us-title">Welcome to Veloria Cos!</h2>

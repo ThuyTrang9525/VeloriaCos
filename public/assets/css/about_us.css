@@ -96,7 +96,6 @@
  
  .team-member img {
    width: 270px;
-    height: 365px;
    display: block;
  }
  
@@ -131,7 +130,7 @@
     margin: auto;
     /* padding: 20px; */
     background-color: #F5D1D1; 
-    /* padding-bottom: 10px; */
+    padding-bottom: px;
 
   }
   
@@ -146,7 +145,7 @@
 .swiper-wrapper {
     display: flex;
     gap: 20px;
-    padding-bottom: 100px;
+    padding-bottom: 70px;
     margin-top: 10px;
   }
   /* Mỗi slide */
@@ -178,3 +177,11 @@
   }
   
   /* Pagination */
+/* Pagination style */
+.swiper-pagination {
+    position: relative;
+    bottom: 20px; /* Điều chỉnh khoảng cách với các card */
+    width: 100%;
+    text-align: center;
+    z-index: 10; /* Đảm bảo phân trang không bị che khuất */
+}
