@@ -27,7 +27,6 @@ Route::get('/search', [ProductController::class, 'search'])->name('search');
 
 Route::get('/admin',[AdminControllers::class,'getAdmin'])-> name('admin');
 
-
 Route::get('/homepage', [UserControllers::class, 'getHomepage'])->name('homepage');
 Route::get('/cart', [UserControllers::class, 'getcart']);
 

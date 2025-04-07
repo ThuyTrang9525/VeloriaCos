@@ -17,7 +17,7 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
-    protected $fillable = ['username', 'email', 'password_hash'];
+    protected $fillable = ['username', 'email', 'password_hash', 'role_id'];
 
     // Nếu bạn muốn sử dụng Auth với trường password_hash
     public function getAuthPassword()

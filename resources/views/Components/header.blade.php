@@ -57,16 +57,16 @@
                 </div>
             </div>
 
-        </div>
-
-        <div class="bottom-header">
-            <ul class="navigate-header">
-            <a href="{{ route('homepage') }}"><li>Home</li></a>
-            <a href="{{ route('product_list') }}"><li>Shop</li></a>
-                <li>Collections</li>
-                <li>About us</li>
-                <li>Contact</li>
-            </ul>
+            </div>
+    
+            <div class="bottom-header">
+                <ul class="navigate-header">
+                <a href="{{ route('homepage') }}"><li>Homepage</li></a>
+                <a href="{{ route('product_list') }}"><li>Product</li></a>
+                    <li>Collections</li>
+                    <li>About us</li>
+                    <li>Contact</li>
+                </ul>
 
         <div class="search-bar-container">
             <form role="search" method="get" id="searchform" action="{{ route('search') }}">
