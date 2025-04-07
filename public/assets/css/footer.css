@@ -1,14 +1,13 @@
-body {
-    background-color: white;
+
+
+.footer {
     font-family: Quicksand;
     margin: 0;
     padding: 0;
-}
-
-.footer {
     background-color: rgb(0, 0, 0);
     width: 100%;
-    height: auto;
+        height: auto;
+
 }
 
 .footer-container {
@@ -72,5 +71,10 @@ body {
     margin-top: 35px;
     line-height: 1.5;
 }
-
+.intro-footer-detail img {
+    margin-left: 80px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
 

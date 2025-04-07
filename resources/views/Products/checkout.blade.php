@@ -85,6 +85,8 @@
     </style>
 </head>
 <body>
+@extends('master')
+@section('content')
     <div class="checkout-container">
         <div class="left-section">
             <div class="coupon-box">
@@ -236,4 +238,5 @@ init();
 
     </script>
 </body>
+@endsection
 </html>

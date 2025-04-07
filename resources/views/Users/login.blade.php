@@ -11,10 +11,12 @@
  
 </head>
 <body>
+
 <div class="container">
     <div class="tabs">
+    <button class="active">Login</button>
         <a href="{{ route('register') }}" class="btn">Register</a>
-        <button class="active">Login</button>
+        
     </div>
     
     <p>If you have an account, sign in with your email address.</p>
