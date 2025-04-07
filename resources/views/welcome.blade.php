@@ -1,61 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="" href="assets\css\searchResult.css">
-    <title>Document</title>
-</head>
-<body>
-    @include('components.header')
-
-    <div class="search-results-container">
-        <div class="title-search-results">
-            <h1 class="search-title">Tìm kiếm</h1>
-            <p class="search-count">Có <span id="quantity-results"> 20 sản phẩm </span> cho tìm kiếm</p>
-            <div class="underline"></div>
+<div class="header">
+    <div class="header-container">
+        <div class="top-header">
+            <div class="left-top-header"></div>
+            <div class="middle-top-header"></div>
+            <div class="right-top-header"></div>
         </div>
 
-        {{-- <div class="search-result-detailts">
-            <!-- Sản phẩm 1 -->
-            <div class="product-item">
-                <h3 class="product-name">Relaxed Fit Sweatshirt</h3>
-                <p class="product-price">255 - 305</p>
+        <div class="middle-header">
+            <div class="info-LogoNameWeb">
+                <img src="{{ asset('images/LogoVeloriaCos.png') }}" alt="">
+                <h1>Veloria Cos</h1>
             </div>
-            
-            <!-- Sản phẩm 2 -->
-            <div class="product-item">
-                <h3 class="product-name">Relaxed Fit Sweatshirt</h3>
-                <p class="product-price">255 - 305</p>
-            </div>
-            
-            <!-- Sản phẩm 3 -->
-            <div class="product-item">
-                <h3 class="product-name">Relaxed Fit Sweatshirt</h3>
-                <p class="product-price">255 - 305</p>
-            </div>
-            
-            <!-- Sản phẩm 4 -->
-            <div class="product-item">
-                <h3 class="product-name">Relaxed Fit Sweatshirt</h3>
-                <p class="product-price">255 - 305</p>
-            </div>
-            
-            <!-- Sản phẩm 5 -->
-            <div class="product-item">
-                <h3 class="product-name">Relaxed Fit Sweatshirt</h3>
-                <p class="product-price">255 - 305</p>
-            </div>
-            
-            <!-- Sản phẩm 6 -->
-            <div class="product-item">
-                <h3 class="product-name">Relaxed Fit Sweatshirt</h3>
-                <p class="product-price">255 - 305</p>
-            </div>
-        </div> --}}
-    </div>
 
-    @include('components.footer')
-</body>
-</html>
+            <div class="info-ContactWeb">
+                <div class="info-Detail">
+                    <ion-icon name="call-outline"></ion-icon>
+                    <div>
+                        <p>Call anytime</p>
+                        <h6>+ 84 123 789 456</h6>
+                    </div>
+                </div>
+
+                <div class="info-Detail">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <div class="div-info-Detail2">
+                        <p>Send email</p>
+                        <h6>VeloriaCos@gmail.com</h6>
+                    </div>
+                </div>
+
+                <div class="info-Detail">
+                    <ion-icon name="map-outline"></ion-icon>
+                    <div>
+                        <p>Address</p>
+                        <h6>Sơn Trà, Đà Nẵng</h6>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-Account">
+                <img src="{{ asset('images/avatar-default.jpg') }}" alt="">
+                <div>
+                    <p>Tài khoản</p>
+                    <a href="#">Đăng nhập</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-header">
+            <ul class="navigate-header">
+                <li>Home</li>
+                <li>Shop</li>
+                <li>Collections</li>
+                <li>About us</li>
+                <li>Contact</li>
+            </ul>
+
+            <div class="search-bar-container">
+                <input type="text" class="input-search-bar" placeholder="Nhập sản phẩm cần tìm kiếm">
+                <button type="submit" class="submit-search-bar"><ion-icon name="search-outline"></ion-icon></button>
+            </div>
+
+            <div class="icon-shopping-cart">
+                <p class="quantity-icon-shopping-cart">0</p>
+                <ion-icon name="cart-outline"></ion-icon>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+.container{
+    margin-top: 40px;
+}
+/* Giữ màu của nút Add to Wishlist ổn định */
+#add-to-wishlist-button {
+    background-color: #e2e8f0;
+    color: black;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-links a {
+    padding: 10px;
+    text-decoration: none;
+    color: gray;
+    font-weight: 600;
+}
+
+.tab-links a.active {
+    color: #e11d48;
+    border-bottom: 2px solid #e11d48;
+}

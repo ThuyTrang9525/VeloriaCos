@@ -34,5 +34,10 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
-
+    'vnpay' => [
+        'merchant_id' => env('VNPAY_MERCHANT_ID'),
+        'api_key' => env('VNPAY_API_KEY'),
+        'secret_key' => env('VNPAY_SECRET_KEY'),
+        'url' => env('VNPAY_URL'),
+    ],
 ];
