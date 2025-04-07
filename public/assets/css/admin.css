@@ -43,7 +43,9 @@ body {
     background-color: #fff;
     border-right: 1px solid #ddd;
     transition: width 0.3s ease-in-out;
-    height: 100vh; /* Sidebar chiếm toàn bộ chiều cao */
+    height: 100vh;
+    flex-shrink: 0; 
+
 }
 
 
@@ -92,13 +94,13 @@ body {
 }
 
 /* General styling for the Dashboard section */
-#dashboard,#products {
+#dashboard,#products,#customers{
     padding: 50px;
     background-color: #f9f9f9;
     border-radius: 8px;
 }
 
-#dashboard h1,#products h1 {
+#dashboard h1,#products h1,#customers h1 {
     font-size: 28px;
     font-weight: 600;
     color: #333;
@@ -207,7 +209,7 @@ body {
 }
 .content-pd {
     text-align: center;
-    padding: 15px;
+    /* padding: px; */
 }
 
 .content-pd img {
@@ -228,11 +230,22 @@ body {
     text-align: center;
     margin-top: 10px;
 }
+/* Đảm bảo rằng các phần tử có thể co giãn nhưng không bị thu nhỏ quá mức */
+.content {
+    display: none;
+    min-height: 100vh; /* Đảm bảo chiều cao đầy đủ */
+}
+
+/* Khi active, đảm bảo phần tử giữ kích thước như mong muốn */
+.content.active {
+    display: block;
+    min-height: 200vh; /* Chiều cao đủ */
+}
 
 .product-title {
     font-size: 16px; /* Điều chỉnh kích thước chữ */
     font-weight: bold;
-    text-align: center;
+    /* text-align: center; */
     display: -webkit-box;
     -webkit-line-clamp: 2; /* Tối đa 2 dòng */
     -webkit-box-orient: vertical;
@@ -250,4 +263,29 @@ body {
     font-size: 16px;
     font-weight: 500;
     color: #888;
+}
+.user-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.user-card:hover {
+    transform: translateY(-5px);
+}
+.avart img {
+    width: 80px; /* hoặc bất kỳ kích thước nào bạn muốn */
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover; /* giúp ảnh không bị méo */
+    border: 2px solid #ccc; /* tùy chọn: viền nhẹ cho đẹp */
+}
+.user-info-grid {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 8px 16px; /* hàng và cột cách nhau */
+    text-align: left;
 }

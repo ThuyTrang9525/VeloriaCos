@@ -19,12 +19,19 @@
             <ul class="nav flex-column pt-4">
                 <li class="nav-item"><a href="#" class="nav-link" onclick="showDashboard()">Dashboard</a></li>
                 <li class="nav-item"><a href="#" class="nav-link" onclick="showProducts()">Products</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Customers</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" onclick="showUser()">Customers</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">Orders</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">Reviews</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">Favorites</a></li>
             </ul>
-            <button class="btn-logout">Logout</button>
+
+            <!-- logout -->
+                <button class="btn-logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Logout
+                </button>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
         </nav>
 
         <!-- Main Content -->
@@ -50,9 +57,9 @@
 
         <!-- Products Content -->
         <div id="products" class="content">
-            <h1>Products</h1>
             <div class="container">
                 <div class="row">
+                    <h1>Products</h1>
                     @foreach ($products as $pd)
                         <div class="col-sm-3 content-pd">
                             <img src="{{ $pd->primaryImage ? asset($pd->primaryImage->image_url) : asset('images/default.jpg') }}" alt="">
@@ -65,6 +72,36 @@
                 </div>
             </div>
         </div>
+
+        <div id="customers" class="content">
+            <div class="container">
+                <div class="row">
+                    <h1>Costumers</h1>
+                    @foreach ($users as $us)
+                        <div class="col-sm-6">
+                            <div class="user-card">
+                                <div class="content-pd">
+                                    <div class="product-info">
+                                        <p class="product-title">{{ $us->username }}</p>
+                                        <div class="user-info-grid">
+                                            <b>Email:</b>
+                                            <p>{{ $us->email }}</p>
+
+                                            <b>Phone Number:</b>
+                                            <p>{{ $us->phone }}</p>
+
+                                            <b>Address:</b>
+                                            <p>{{ $us->address }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+
+                </div>
+            </div>
+        </div>
     </div>
     
 
@@ -74,12 +111,21 @@
         function showProducts() {
             document.getElementById('dashboard').classList.remove('active');
             document.getElementById('products').classList.add('active');
+            document.getElementById('customers').classList.remove('active');
         }
 
         function showDashboard() {
             document.getElementById('products').classList.remove('active');
             document.getElementById('dashboard').classList.add('active');
+            document.getElementById('customers').classList.remove('active');
         }
+
+        function showUser() {
+            document.getElementById('products').classList.remove('active');
+            document.getElementById('dashboard').classList.remove('active');
+            document.getElementById('customers').classList.add('active');
+        }
+
         function setActiveLink(link) {
             const links = document.querySelectorAll('.nav-link');
             links.forEach((l) => {
