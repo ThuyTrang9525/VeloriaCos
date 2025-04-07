@@ -1,93 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout Page</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            font-family: 'Quicksand', sans-serif;
-            background-color: #f8f8f8;
-            margin: 0;
-            padding: 20px;
-        }
-        .checkout-container {
-            display: flex;
-            max-width: 900px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .left-section, .right-section {
-            padding: 20px;
-        }
-        .left-section {
-            width: 60%;
-        }
-        .right-section {
-            width: 40%;
-            background: #fafafa;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        .coupon-box, .free-shipping-alert {
-            background: #fff3f3;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            font-size: 14px;
-        }
-        .highlight {
-            color: red;
-            font-weight: bold;
-        }
-        form label {
-            display: block;
-            margin-top: 10px;
-            font-weight: bold;
-        }
-        form input, form select, form textarea {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .right-section table {
-            width: 100%;
-            margin-bottom: 15px;
-        }
-        .right-section table td {
-            padding: 5px;
-        }
-        .payment-methods {
-            margin-bottom: 15px;
-        }
-        .terms {
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-        .place-order {
-            width: 100%;
-            padding: 10px;
-            background: #ff6b6b;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .place-order:hover {
-            background: #e05656;
-        }
-    </style>
-</head>
-<body>
+
 @extends('master')
 @section('content')
-    <div class="checkout-container">
+    <div class="checkout-container p-[100px]">
         <div class="left-section">
             <div class="coupon-box">
                 <p>Have a coupon? <a href="#">Click here to enter your code</a></p>
@@ -116,8 +30,18 @@
                 <input type="text" required>
                 <label>Email address *</label>
                 <input type="email" required>
-                <input type="checkbox"> Create an account?
-                <input type="checkbox"> Ship to a different address?
+                <label style="font-size: 14px;">
+                    <input type="checkbox" style="width: 13px; height: 13px; margin-right: 5px;">
+                    Create an account?
+                  </label>
+                  
+                  <br>
+                  
+                  <label style="font-size: 14px;">
+                    <input type="checkbox" style="width: 13px; height: 13px; margin-right: 5px;">
+                    Ship to a different address?
+                  </label>
+                  
                 <label>Order notes (optional)</label>
                 <textarea placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
             </form>
@@ -154,7 +78,6 @@
             <button class="place-order">Place order</button>
         </div>
     </div>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script type="module" src="{{ asset('assets/js/checkout.js') }}"></script>
-</body>
 @endsection
-</html>

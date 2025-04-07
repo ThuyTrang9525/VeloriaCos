@@ -1,76 +1,71 @@
- body {
-            font-family: 'Quicksand', sans-serif;
-            background-color: #f8f8f8;
-            margin: 0;
-            padding: 20px;
-        }
-        .checkout-container {
-            display: flex;
-            max-width: 900px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .left-section, .right-section {
-            padding: 20px;
-        }
-        .left-section {
-            width: 60%;
-        }
-        .right-section {
-            width: 40%;
-            background: #fafafa;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        .coupon-box, .free-shipping-alert {
-            background: #fff3f3;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            font-size: 14px;
-        }
-        .highlight {
-            color: red;
-            font-weight: bold;
-        }
-        form label {
-            display: block;
-            margin-top: 10px;
-            font-weight: bold;
-        }
-        form input, form select, form textarea {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .right-section table {
-            width: 100%;
-            margin-bottom: 15px;
-        }
-        .right-section table td {
-            padding: 5px;
-        }
-        .payment-methods {
-            margin-bottom: 15px;
-        }
-        .terms {
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-        .place-order {
-            width: 100%;
-            padding: 10px;
-            background: #ff6b6b;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .place-order:hover {
-            background: #e05656;
-        }
+
+.checkout-container {
+    display: flex;
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.left-section, .right-section {
+    padding: 20px;
+}
+.left-section {
+    width: 60%;
+}
+.right-section {
+    width: 40%;
+    background: #fafafa;
+    padding: 20px;
+    border-radius: 8px;
+}
+.coupon-box, .free-shipping-alert {
+    background: #fff3f3;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+.highlight {
+    color: red;
+    font-weight: bold;
+}
+form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+form input, form select, form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.right-section table {
+    width: 100%;
+    margin-bottom: 15px;
+}
+.right-section table td {
+    padding: 5px;
+}
+.payment-methods {
+    margin-bottom: 15px;
+}
+.terms {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+.place-order {
+    width: 100%;
+    padding: 10px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.place-order:hover {
+    background: #e05656;
+}
