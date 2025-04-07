@@ -25,11 +25,12 @@ class UserControllers extends Controller
             'password.min' => 'Password must be at least 6 characters.',
         ]);
     
-        User::create([
-            'username' => $request->name,
-            'email' => $request->email,
-            'password_hash' => bcrypt($request->password),
-        ]);
+            User::create([
+                'username' => $request->name,
+                'email' => $request->email,
+                'password_hash' => bcrypt($request->password),
+                'role_id' => 1, // gán cố định
+            ]);
     
         return redirect()->route('login')->with('success', 'Registration successful');
     }

@@ -1,0 +1,291 @@
+/* Định dạng chung */
+/* Initially hide the divs */
+.content {
+    display: none;
+}
+
+/* Show the active div */
+.content.active {
+    display: block;
+}
+.container {
+    padding: 20px;
+    min-height: 100vh; /* Đảm bảo chiều cao đầy đủ */
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.sidebar img{
+    border-radius: 300px;
+}
+/* Sidebar link style */
+.nav-link {
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+/* When the link is active (selected) */
+.nav-link.active {
+    background-color: #F5D1D1; /* Màu nền khi chọn */
+    color: white; /* Màu chữ khi chọn */
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    transition: width 0.3s ease-in-out;
+    height: 100vh;
+    flex-shrink: 0; 
+
+}
+
+
+.sidebar img {
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+    padding-bottom: 10px;
+}
+
+.sidebar .nav-link {
+    font-size: 16px;
+    padding: 10px 15px;
+    color: #555;
+    transition: all 0.3s ease-in-out;
+    border-bottom: 1px solid #ddd;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #F5D1D1;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Main Content */
+.container {
+    padding: 20px;
+}
+
+/* Search và Add Product */
+.d-flex input {
+    border-radius: 25px;
+    padding: 10px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* General styling for the Dashboard section */
+#dashboard,#products,#customers{
+    padding: 50px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+#dashboard h1,#products h1,#customers h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Styling the buttons container */
+.stats-buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+/* Individual button styles */
+.stats-button {
+    background-color: #F5D1D1;
+    color: white;
+    padding: 45px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 200px; /* Give fixed width to buttons */
+    text-align: center;
+}
+
+/* Hover effects for buttons */
+.stats-button:hover {
+    background-color: #ff9a9a;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Active button styling */
+.stats-button:active {
+    background-color: #ffbcbc;
+    transform: translateY(0);
+}
+
+/* Focus state for accessibility */
+.stats-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(38, 143, 255, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .stats-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stats-button {
+        width: 80%; /* Make buttons take up more space on smaller screens */
+        margin-bottom: 15px;
+    }
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70px;
+    }
+
+    .sidebar .nav-link {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .sidebar img {
+        display: none;
+    }
+
+    .container {
+        padding: 10px;
+    }
+}
+/* Nút Logout */
+.btn-logout {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-logout:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
+.btn-logout:active {
+    transform: scale(0.95);
+}
+.content-pd {
+    text-align: center;
+    /* padding: px; */
+}
+
+.content-pd img {
+    width: 90%;
+    height: 380px; /* Điều chỉnh chiều cao ảnh dài hơn */
+    object-fit: cover; /* Cắt ảnh để giữ tỷ lệ đẹp */
+    border-radius: 12px; /* Bo góc ảnh */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-pd img:hover {
+    transform: scale(1.05); /* Phóng to nhẹ khi hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product-info {
+    text-align: center;
+    margin-top: 10px;
+}
+/* Đảm bảo rằng các phần tử có thể co giãn nhưng không bị thu nhỏ quá mức */
+.content {
+    display: none;
+    min-height: 100vh; /* Đảm bảo chiều cao đầy đủ */
+}
+
+/* Khi active, đảm bảo phần tử giữ kích thước như mong muốn */
+.content.active {
+    display: block;
+    min-height: 200vh; /* Chiều cao đủ */
+}
+
+.product-title {
+    font-size: 16px; /* Điều chỉnh kích thước chữ */
+    font-weight: bold;
+    /* text-align: center; */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Tối đa 2 dòng */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+    height: auto; /* Để chiều cao tự động */
+    min-height: 42px; /* Đảm bảo không bị cắt */
+    line-height: 1.2; /* Điều chỉnh khoảng cách giữa các dòng */
+    word-wrap: break-word; /* Ngắt từ nếu quá dài */
+}
+
+
+.product-price {
+    font-size: 16px;
+    font-weight: 500;
+    color: #888;
+}
+.user-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.user-card:hover {
+    transform: translateY(-5px);
+}
+.avart img {
+    width: 80px; /* hoặc bất kỳ kích thước nào bạn muốn */
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover; /* giúp ảnh không bị méo */
+    border: 2px solid #ccc; /* tùy chọn: viền nhẹ cho đẹp */
+}
+.user-info-grid {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 8px 16px; /* hàng và cột cách nhau */
+    text-align: left;
+}

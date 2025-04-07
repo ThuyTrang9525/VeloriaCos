@@ -8,7 +8,7 @@
             <li class="list-group-item">
                 <a href="{{ route('category_products', ['category_id' => $sb->id]) }}"
                    class="{{ request()->is('product_list/'.$sb->id) ? 'active' : '' }}">
-                    {{ $sb->name }}
+                    {{ $sb->name }} 
                 </a>
             </li>
         @endforeach
