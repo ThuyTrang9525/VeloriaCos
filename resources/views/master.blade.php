@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/homepage.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/checkout.css') }}">
     <link rel="stylesheet" href="assets\css\product_detail.css">
+    <link rel="stylesheet" href="assets\css\about_us.css">
 
     <style>
         body {

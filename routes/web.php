@@ -44,6 +44,8 @@ Route::get('/checkout-success', [ProductController::class, 'success'])->name('ch
 Route::get('vnpay/payment', [VNPayController::class, 'payment']);
 Route::get('vnpay/return', [VNPayController::class, 'return'])->name('vnpay.return');
 
+Route::get('/aboutUs', [UserControllers::class, 'getAboutUs'])->name('aboutUs');
+
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 
 Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');

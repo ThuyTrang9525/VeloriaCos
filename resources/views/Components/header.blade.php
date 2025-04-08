@@ -64,7 +64,7 @@
                 <a href="{{ route('homepage') }}"><li>Homepage</li></a>
                 <a href="{{ route('product_list') }}"><li>Product</li></a>
                     <li>Collections</li>
-                    <li>About us</li>
+                <a href="{{ route('aboutUs') }}"><li>About us</li></a>
                     <li>Contact</li>
                 </ul>
 

@@ -78,5 +78,8 @@ public function getHomepage()
     // Trả về view và truyền biến $products vào view
     return view('Users.homepage', compact('products','categories'));
 }
-
+public function getAboutUs()
+{
+    return view('Users.about-us');
+}
 }
