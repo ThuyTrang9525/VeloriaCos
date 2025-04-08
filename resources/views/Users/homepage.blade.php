@@ -23,13 +23,38 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     <div class="swiper mySwiper">
     <div class="swiper-wrapper">
-        @foreach ($categories as $category)
+        <a href="/product_list/1" class="swiper-slide item">
+            <img src="/images/homepage/dress-icon.png" alt="Dress">
+            <h3>Anime & Game</h3>
+            <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
+        </a>
+        <a href="/product_list/2" class="swiper-slide item">
+            <img src="/images/homepage/dress-icon.png" alt="Dress">
+            <h3>Modernized Traditional</h3>
+            <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
+        </a>
+        <a href="/product_list/3" class="swiper-slide item">
+            <img src="/images/homepage/dress-icon.png" alt="Dress">
+            <h3>Traditional Costumes of Nations & Ethnic Groups</h3>
+            <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
+        </a>
+        <a href="/product_list/4" class="swiper-slide item">
+            <img src="/images/homepage/dress-icon.png" alt="Dress">
+            <h3>Lolita & Fashion Cosplay</h3>
+            <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
+        </a>
+        <a href="/product_list/5" class="swiper-slide item">
+            <img src="/images/homepage/dress-icon.png" alt="Dress">
+            <h3>Princess Dresses</h3>
+            <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
+        </a>
+        <!-- @foreach ($categories as $category)
             <a href="{{ route('category.show', $category->id) }}" class="swiper-slide item">
                 <img src="/images/homepage/dress-icon.png" alt="Dress">
                 <h3>{{ $category->name }}</h3>
                 <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
             </a>
-        @endforeach
+        @endforeach -->
     </div>
     <div class="swiper-pagination"></div>
 </div>
@@ -70,7 +95,7 @@
                         <img src="{{ $primaryImage->image_url }}" alt="{{ $product->name }}">
                     @endif
                     <p class="collection-label">{{ strtoupper($product->name) }}</p>
-                    <a href="{{ route('product.show', $product->id) }}"> <!-- Thêm thẻ a bao quanh mũi tên -->
+                    <a href="/product/{id}"> <!-- Thêm thẻ a bao quanh mũi tên -->
                         <span class="collection-arrow">→</span>
                     </a>
                 </div>
@@ -143,7 +168,7 @@
 
 <div class="discount-banner">
     <div class="text-content">
-        <h1>Get <span class="highlight">50% Off</span></h1>
+        <h1>Get 50% Off</span></h1>
         <p>For all new product purchases <br> min. purchase Rp. 350.000</p>
     </div>
     <div class="image-container">
@@ -152,32 +177,4 @@
 </div>
 </div>
 @endsection
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 4,
-        spaceBetween: 20,
-        loop: true,
-        pagination: {
-            el: ".swiper-pagination", // Add pagination control
-            clickable: true,
-        },
-        autoplay: {
-            delay: 3000, // chuyển slide sau 3 giây
-            disableOnInteraction: false, // vẫn autoplay dù người dùng bấm nút
-        },
-        breakpoints: {
-            1024: {
-                slidesPerView: 4,
-            },
-            768: {
-                slidesPerView: 2,
-            },
-            480: {
-                slidesPerView: 1,
-            },
-        },
-    });
-});
-
-</script>
+<script src="{{ asset('assets/js/homepage.js') }}"></script>
