@@ -62,8 +62,8 @@
     
             <div class="bottom-header">
                 <ul class="navigate-header">
-                <a href="{{ route('homepage') }}"><li>Shop</li></a>
-                <a href="{{ route('product_list') }}"><li>Shop</li></a>
+                <a href="{{ route('homepage') }}"><li>Homepage</li></a>
+                <a href="{{ route('product_list') }}"><li>Product</li></a>
                     <li>Collections</li>
                 <a href="{{ route('aboutUs') }}"><li>About us</li></a>
                     <li>Contact</li>
@@ -74,10 +74,12 @@
                 <button type="submit" class="submit-search-bar"><ion-icon name="search-outline"></ion-icon></button>
             </div>
 
-                <div class="icon-shopping-cart">
-                    <p class="quantity-icon-shopping-cart">0</p>
-                    <ion-icon name="cart-outline"></ion-icon>
-                </div>
+            <a href="{{ route('cart.index') }}" class="icon-shopping-cart">
+                <p class="quantity-icon-shopping-cart">{{ $totalQty ?? 0 }}</p>
+                <ion-icon name="cart-outline"></ion-icon>
+            </a>
+
+
             </div>
         </div>
     </div>

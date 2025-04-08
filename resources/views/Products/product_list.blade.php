@@ -8,7 +8,7 @@
             <li class="list-group-item">
                 <a href="{{ route('category_products', ['category_id' => $sb->id]) }}"
                    class="{{ request()->is('product_list/'.$sb->id) ? 'active' : '' }}">
-                    {{ $sb->name }}
+                    {{ $sb->name }} 
                 </a>
             </li>
         @endforeach
@@ -23,7 +23,7 @@
                      alt="{{ $product->name }}" 
                      class="w-full h-80 object-cover rounded-lg">
                 <div class="absolute top-2 right-2 flex gap-2">
-                    <i class="fa-solid fa-cart-plus text-pink-500 bg-white p-2 rounded-full border-2 border-pink-500 cursor-pointer"></i>
+                    <i class="fa-solid fa-cart-plus text-pink-500 bg-white p-2 rounded-full border-2 border-pink-500 cursor-pointer"onclick="addToCart({{ $product->id }})"></i>
                     <i class="fa-regular fa-heart text-pink-500 bg-white p-2 rounded-full border-2 border-pink-500 cursor-pointer"></i>
                 </div>
                 <h3 class="text-lg font-semibold mt-2">{{ $product->name }}</h3>

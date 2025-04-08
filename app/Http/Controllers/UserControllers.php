@@ -5,6 +5,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\ProductImage;
@@ -25,11 +26,12 @@ class UserControllers extends Controller
             'password.min' => 'Password must be at least 6 characters.',
         ]);
     
-        User::create([
-            'username' => $request->name,
-            'email' => $request->email,
-            'password_hash' => bcrypt($request->password),
-        ]);
+            User::create([
+                'username' => $request->name,
+                'email' => $request->email,
+                'password_hash' => bcrypt($request->password),
+                'role_id' => 1, // gán cố định
+            ]);
     
         return redirect()->route('login')->with('success', 'Registration successful');
     }
@@ -72,9 +74,9 @@ public function getHomepage()
 {
     // Lấy tất cả sản phẩm cùng với hình ảnh (eager load quan hệ images)
     $products = Product::with('images')->get();
-
+    $categories = Category::all(); // hoặc where('status', 1) nếu muốn lọc
     // Trả về view và truyền biến $products vào view
-    return view('Users.homepage', compact('products'));
+    return view('Users.homepage', compact('products','categories'));
 }
 public function getAboutUs()
 {

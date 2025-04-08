@@ -19,6 +19,8 @@
     <!-- <script rel="stylesheet" src="https://cdn.tailwindcss.com"></script> -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
     <!-- FontAwesome -->
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <!-- IonIcons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -52,17 +54,16 @@
     <link rel="stylesheet" href="assets\css\header.css">
     <link rel="stylesheet" href="assets\css\homepage.css">
     <link rel="stylesheet" href="assets\css\product_list.css">
-
+    <link rel="stylesheet" href="assets\css\cart.css">
 
      <!-- link swiper -->
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
      <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <!-- Thêm Swiper JS -->
      <!-- Swiper CSS trước -->
-<link rel="stylesheet" href="swiper-bundle.min.css">
+    <link rel="stylesheet" href="swiper-bundle.min.css">
 
-<!-- CSS của bạn sau -->
-<link rel="stylesheet" href="your-custom-style.css">
+    <!-- CSS của bạn sau -->
+    <link rel="stylesheet" href="your-custom-style.css">
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
