@@ -99,14 +99,11 @@ class ProductController extends Controller
     public function getListProduct($category_id = null)
     {
         $sidebar = Category::all();
-    
-        // Nếu có category_id, lấy sản phẩm theo danh mục
-        if ($category_id) {
+            if ($category_id) {
             $products = Product::where('category_id', $category_id)
                 ->with('primaryImage')
-                ->paginate(12);  // Chỉnh sửa số lượng sản phẩm trên mỗi trang (ví dụ: 12)
+                ->paginate(12);  
         } else {
-            // Nếu không có category_id, lấy tất cả sản phẩm
             $products = Product::with('primaryImage')->paginate(12);
         }
     
@@ -116,7 +113,13 @@ class ProductController extends Controller
         ]);
     }
     
+    public function search(Request $request){
+        $keyword = $request->input('keyword');
+        $productType = Category::all();
+        $products = Product::where('name', 'like', '%' . $keyword . '%')->get();
 
+        return view('products.searchResult', compact('products','productType'));
+    }
     
 
 

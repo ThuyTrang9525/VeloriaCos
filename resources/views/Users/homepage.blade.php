@@ -48,6 +48,13 @@
             <h3>Princess Dresses</h3>
             <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
         </a>
+        <!-- @foreach ($categories as $category)
+            <a href="{{ route('category.show', $category->id) }}" class="swiper-slide item">
+                <img src="/images/homepage/dress-icon.png" alt="Dress">
+                <h3>{{ $category->name }}</h3>
+                <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
+            </a>
+        @endforeach -->
     </div>
     <div class="swiper-pagination"></div>
 </div>
