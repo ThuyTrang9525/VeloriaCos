@@ -71,9 +71,9 @@
 
 <body style="font-family: 'Quicksand', sans-serif;">
     @yield('master')
-    @include('components.header')
+    @include('Components.header')
     @yield('content')
-    @include('components.footer') <!-- Footer nằm ở dưới cùng -->
+    @include('Components.footer') <!-- Footer nằm ở dưới cùng -->
 
     <!-- Scripts -->
     @stack('scripts')
